@@ -1,0 +1,61 @@
+{% extends 'order/_layouts/main' %}
+{% block main %}
+
+
+    <div class="row product">
+{% for product in craft.commerce.products.limit(5).find() %}
+
+        <div class="three columns page-menu-item">
+            {% include "order/_images/product" with { class: 'u-max-full-width' } %}
+
+        <div class="twelve columns">
+            <!-- <h5>{% if product.url %}{{ product.link }}{% else %}{{ product.title }}{% endif %}</h5> -->
+            <h5>{{ product.title }}</h5>
+
+
+                {% if currentUser %}
+                {% set order = craft.commerce.orders.user(currentUser).hasPurchasables(product.defaultVariant).find() %}
+                {% if order|length %}
+              <!--       <strong>This is item was in a previous order - Order the same thing again!</strong> <a href="customer/order?orderNumber={{ order[0].number }}">Order #{{ order[0].shortNumber }}</a> -->
+                {% endif %}
+                {% endif %}
+
+                {%- for purchasable in product.variants -%}
+                    <div id="product-{{ product.id }}-purchasable-{{ purchasable.id }}" class="purchasableInfo" style="display:none;">
+                        <strong>Regular Price: </strong><strike>{{ purchasable.price|commerceCurrency(cart.currency) }}</strike><br>
+                        <strong>Now: </strong>{{ purchasable.salePrice|commerceCurrency(cart.currency) }}<br>
+                        {% if purchasable.salesApplied %}<strong>Sales Applied:</strong><br>{% endif %}
+                        <ul>
+                            {% for sale in purchasable.salesApplied  %}
+                            <li><strong>{{ sale.name }}</strong> {{ sale.description }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {%- endfor -%}
+
+
+        </div>
+
+
+
+        </div>
+
+
+{% endfor %}
+    </div>
+
+<!-- was here -->
+
+
+
+
+
+
+
+{% includejs %}
+    $( ".purchasableId" ).change(function(e) {
+        $(".purchasableInfo").hide();
+        $("#"+($(this).find(":selected").data('info'))).toggle();
+    });
+{% endincludejs %}
+{% endblock %}

@@ -1,0 +1,109 @@
+{#
+ # Layout template
+ # ---------------
+ #
+ # This template defines your site’s global layout. It can be
+ # “extended” by other templates to fill in the gaps.
+ #
+ # See Twig’s Template Inheritance documentation for more details:
+ # http://twig.sensiolabs.org/doc/templates.html#template-inheritance
+ #}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
+	<link rel="home" href="{{ siteUrl }}" />
+  <link href="http://fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet" type="text/css">
+
+
+
+    {% includeCssFile "assets/css/style.css" %}
+</head>
+
+<body>
+
+
+<div class="fullscreen-bg">
+    <video loop muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
+        <source src="assets/street.mp4" type="video/mp4">
+    </video>
+</div>
+
+
+	<div id="container">
+		<header id="header">
+			<h1>
+				<a href="{{ siteUrl }}">
+{% for logoImage in craft.entries.section('siteLogo') %}
+{{ socialItem.title }}
+{% for asset in logoImage.image %}
+    <img src="{{ asset.url }}" alt="{{ socialItem.title }}" alt="logo" style="width:100%;">
+{% endfor %}
+{% endfor %}
+
+
+
+
+				</a></h1>
+
+
+        {% include "parts/nav" %}
+
+		<!-- 	<nav>
+				<ul>
+					<li><a href="{{ url('news') }}" {% if craft.request.firstSegment == 'news' %}class="active"{% endif %}>News</a></li>
+				</ul>
+			</nav> -->
+		</header>
+
+		<main id="content" role="main" style="display:none;">
+			{% block content %}
+				<p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
+				<p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
+			{% endblock %}
+		</main>
+
+
+
+
+
+
+
+
+{% include "parts/menu" %}
+
+
+{% include "parts/contact" %}
+
+
+		<footer id="footer">
+        {% include "parts/social" %}
+		</footer>
+	</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/js/swipe.min.js"></script>
+<script type="text/javascript" src="/assets/js/jquery.scrolldepth.min.js"></script>
+<script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/assets/js/bootstrap-transition.js"></script>
+<script type="text/javascript" src="/assets/js/unslider.js"></script>
+<script type="text/javascript" src="/assets/js/jquery.sticky.js"></script>
+<script>
+
+$('.menu-nav li').click(function(){
+
+    $('.menu-nav li:not(:last-child), .menu').removeClass('active');
+    $(this).addClass('active');
+    $menuList = '#' + $(this).data('menu-id');
+
+    $($menuList).addClass('active');
+
+});
+
+</script>
+
+
+</body>
+</html>

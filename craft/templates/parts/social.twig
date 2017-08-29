@@ -1,0 +1,16 @@
+    <ul class="social-links">
+
+
+{% for socialItem in craft.entries.section('socialLinks') %}
+<li>
+<a target="_blank" href="{{ socialItem.linkUrl }}">
+twitter
+{{ socialItem.title }}
+{% for asset in socialItem.image %}
+    <img src="{{ asset.url }}">
+{% endfor %}
+</a>
+</li>
+{% endfor %}
+
+    </ul>

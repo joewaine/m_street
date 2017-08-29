@@ -1,0 +1,596 @@
+ <section id="menu">
+  <div class="padding-wrap">
+    <div class="row-fluid">
+      <div class="span12">
+
+          <h2>menu</h2>
+          <p>our menu changes to match the season. please call for any updates.</p>
+
+          <ul class="menu-nav">
+            {% for menu in menus %}
+            <li data-menu-id="menu-{{ menu.id }}"{% if loop.first %} class="active"{% endif %}>
+              <a href="#" onclick="_gaq.push(['_trackEvent', 'content', 'menu', 'menu-{{ menu.title }}'])">
+                {{ menu.title }}
+              </a>
+            </li>
+            {% endfor %}
+            <li>
+              <a href="/order">order</a>
+            </li>
+          </ul>
+
+
+
+      <hr>
+
+      {% for menu in menus %}
+      <div class="menu{% if loop.first %} active{% endif %}" id="menu-{{ menu.id }}">
+        <div class="row-fluid">
+
+          {% set numColumns = 0 %}
+
+          {% if menu.menuColumnOne | length %}
+            {% set numColumns = numColumns + 1 %}
+          {% endif %}
+
+          {% if menu.menuColumnTwo | length %}
+            {% set numColumns = numColumns + 1 %}
+          {% endif %}
+
+          {% if menu.menuColumnThree | length %}
+            {% set numColumns = numColumns + 1 %}
+          {% endif %}
+
+          {% if menu.menuColumnFour | length %}
+            {% set numColumns = numColumns + 1 %}
+          {% endif %}
+
+          {% set spanCount = 12 / numColumns %}
+
+          {% if menu.menuColumnOne | length %}
+          <div class="span{{ spanCount }}">
+            {{ m.menuColumn(menu.menuColumnOne) }}
+          </div>
+          {% endif %}
+
+          {% if menu.menuColumnTwo | length %}
+          <div class="span{{ spanCount }}">
+            {{ m.menuColumn(menu.menuColumnTwo) }}
+          </div>
+          {% endif %}
+
+          {% if menu.menuColumnThree | length %}
+          <div class="span{{ spanCount }}">
+            {{ m.menuColumn(menu.menuColumnThree) }}
+          </div>
+          {% endif %}
+
+          {% if menu.menuColumnFour | length %}
+          <div class="span{{ spanCount }}">
+            {{ m.menuColumn(menu.menuColumnFour) }}
+          </div>
+          {% endif %}
+
+        </div>
+      </div>
+      {% endfor %}
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+ </section>
+
+
+
+
+
+
+
+    <section id="menu">
+<div class="padding-wrap">
+      <div class="row-fluid">
+        <div class="span12">
+
+          <h2>menu</h2>
+          <p>our menu changes to match the season. please call for any updates.</p>
+
+          <ul class="menu-nav">
+                        <li data-menu-id="menu-4" class="active">
+               <a href="#">
+                dinner
+              </a>
+            </li>
+                        <li data-menu-id="menu-5">
+             <a href="#">
+                brunch
+              </a>
+            </li>
+                        <li data-menu-id="menu-6">
+                <a href="#">
+                    lunch &amp; to go
+              </a>
+            </li>
+                        <li data-menu-id="menu-1084">
+              <a href="#">
+                happy hour
+              </a>
+            </li>
+                        <li>
+              <a href="/order">order</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <hr>
+
+            <div class="menu active" id="menu-4">
+        <div class="row-fluid">
+
+
+
+
+
+
+
+                    <div class="span4">
+
+
+    <h4>mezze | small plates</h4>
+    <ul class="menu-items"><li>
+        <p>
+          <span class="name">hummus</span>           <span class="price">7.00</span><br>chickpea, tahini, lemon, olive oil</p>
+      </li><li>
+        <p>
+          <span class="name">Muhammara</span>          <span class="price">8.00</span><br>walnuts, pepper paste, cumin, garlic, pomegranate</p>
+      </li><li>
+        <p>
+          <span class="name">Shamandar bi tahini</span>          <span class="price">7.00</span><br>grated beets, spring green yogurt, garlic, tahini</p>
+      </li><li>
+        <p>
+          <span class="name">baba ghanoush</span>          <span class="price">8.00</span><br>roasted eggplant, tahini, lemon</p>
+      </li><li>
+        <p>
+          <span class="name">moushakal</span>          <span class="price">18.00</span><br>muhammara, hummus, shamandar bi tahini, baba ganoush</p>
+      </li><li>
+        <p>
+          <span class="name">Fattoush</span>           <span class="price">12.00</span><br>local lettuces, tomato, cucumber, radish, sumac, herbs, crispy pita</p>
+      </li><li>
+        <p>
+          <span class="name">salatet bulgur</span>           <span class="price">12.00</span><br>green beans, chicory, avocado, bulgur, tarragon, lemon, hazelnuts</p>
+      </li><li>
+        <p>
+          <span class="name">abdoodh khiar</span>          <span class="price">7.00</span><br>chilled yogurt soup, cucumber, walnut, sultana, herbs, garlic bread</p>
+      </li><li>
+        <p>
+          <span class="name">Arnabeit Makli</span>           <span class="price">12.00</span><br>fried cauliflower, tarrator, parsley</p>
+      </li><li>
+        <p>
+          <span class="name">crudite</span>          <span class="price">6.00</span><br>selection of raw vegetables</p>
+      </li><li>
+        <p>
+          <span class="name">Kibbeh </span>          <span class="price">9.00</span><br>cracked wheat shell, spiced beef, pine nut, tarrator</p>
+      </li><li>
+        <p>
+          <span class="name">dolmeh</span>           <span class="price">10.00</span><br>sweet and sour rice, grape leaves, barberries, yogurt, fried shallots</p>
+      </li><li>
+        <p>
+          <span class="name">Labneh</span>           <span class="price">6.00</span><br>strained yogurt, mint, nigella</p>
+      </li><li>
+        <p>
+          <span class="name">jibneh</span>           <span class="price">12.00</span><br>cheese, torshi, marinated olives</p>
+      </li></ul>
+
+
+          </div>
+
+
+                    <div class="span4">
+
+
+    <h4>sohoon | entrees</h4>
+    <ul class="menu-items"><li>
+        <p>
+          <span class="name">Mamnoon Taouk</span>          <span class="price">22.00</span><br>halal chicken, garlic, charred lemon, marinated vegetables, herbs</p>
+      </li><li>
+        <p>
+          <span class="name">Kefta</span>          <span class="price">24.00</span><br>halal minced beef and lamb, pistachio, baharat, cherry tomato, laban bi khiar</p>
+      </li><li>
+        <p>
+          <span class="name">ghalieh mahi bi reshteh polow</span>          <span class="price">32.00</span><br>spicy persian fish stew, salmon, shrimp, tamarind, cilantro , persian rice</p>
+      </li><li>
+        <p>
+          <span class="name">summer fatteh</span>          <span class="price">20.00</span><br>local summer squash, garlic yogurt, tomato, brown butter pine nuts, crispy pita</p>
+      </li><li>
+        <p>
+          <span class="name">mashawi - mixed grill</span>          <span class="price">75.00</span><br>kefta, mahi, shish taouk, saffron basmati rice, laban bi khiar</p>
+      </li></ul>
+
+    <h4>ala janab | sides</h4>
+    <ul class="menu-items"><li>
+        <p>
+          <span class="name">saffron basmati rice</span>           <span class="price">5.00</span><br></p>
+      </li></ul>
+
+
+          </div>
+
+                    <div class="span4">
+
+
+    <h4>helou | sweets</h4>
+    <ul class="menu-items"><li>
+        <p>
+          <span class="name">delice au chocolat</span>           <span class="price">9.00</span><br>dark chocolate mousse, chocolate sponge, cocoa glaze, strawberry cream</p>
+      </li><li>
+        <p>
+          <span class="name">bouza</span>          <span class="price">6.00</span><br>strawberry rose ice cream</p>
+      </li><li>
+        <p>
+          <span class="name">sharbat</span>          <span class="price">7.00</span><br>cherry sorbet, labneh, verjus, cherries</p>
+      </li><li>
+        <p>
+          <span class="name">baklawa</span>          <span class="price">3.00</span><br>pistachio, walnut, orange blossom water</p>
+      </li><li>
+        <p>
+          <span class="name">batikh thalej</span>          <span class="price">9.00</span><br>watermelon snow, honey yogurt, candied watermelon rind, butter toffee, lime syrup</p>
+      </li><li>
+        <p>
+          <span class="name">Mouhallabia</span>          <span class="price">0.00</span><br>milk pudding, mastic, orange blossom, plums, candied pistachio</p>
+      </li></ul>
+
+
+          </div>
+
+        </div>
+      </div>
+            <div class="menu" id="menu-5">
+        <div class="row-fluid">
+
+
+
+
+
+
+
+                    <div class="span3">
+
+
+    <h4>mezze | small plates</h4>
+    <ul class="menu-items"><li>
+        <p>
+          <span class="name">kaak bi knafe</span>          <span class="price">5.00</span><br>stuffed purse-shaped sesame bread, toasted vermicelli, sweet cheese roll, orange blossom</p>
+      </li><li>
+        <p>
+          <span class="name">labneh</span>           <span class="price">8.00</span><br>strained yogurt, huckleberry jam, pistachio</p>
+      </li><li>
+        <p>
+          <span class="name">fattoush</span>           <span class="price">9.00</span><br>endive, celery, radish, olives, sumac, crispy pita</p>
+      </li><li>
+        <p>
+          <span class="name">harra frites</span>           <span class="price">6.00</span><br>spiced french fries, za'atar mayonnaise, spicy ketchup</p>
+      </li><li>
+        <p>
+          <span class="name">marinated olives</span>           <span class="price">4.00</span><br>pickled peppers, orange zest, spices</p>
+      </li><li>
+        <p>
+          <span class="name">spreads</span>          <span class="price">5.00</span><br>hummus or, shamandar or, muhammara, or baba ghanoush</p>
+      </li></ul>
+
+
+          </div>
+
+                    <div class="span3">
+
+
+    <h4>sohoon | plates</h4>
+    <ul class="menu-items"><li>
+        <p>
+          <span class="name">batata bi awarma</span>           <span class="price">17.00</span><br>spiced lamb, asparagus, crispy potatoes, poached eggs</p>
+      </li><li>
+        <p>
+          <span class="name">fatteh</span>           <span class="price">14.00</span><br>chickpea, spring green yogurt, pine nuts, brown butter, crispy pita, poached egg</p>
+      </li><li>
+        <p>
+          <span class="name">shakshuka</span>          <span class="price">13.00</span><br>eggs baked in spicy tomato-pepper sauce, feta, barbari bread</p>
+      </li><li>
+        <p>
+          <span class="name">falafel sandwich</span>           <span class="price">10.00</span><br>chickpea fritters, cabbage, pickles, tomato, hummus, yogurt, herbs</p>
+      </li></ul>
+
+    <h4>man'oushe</h4>
+    <ul class="menu-items"><li>
+        <p>
+          <span class="name">za'atar</span>          <span class="price">7.50</span><br>king of lebanese street food!  wild thyme, sesame &amp; nigella seeds, lemon salt, olive oil, yogurt, tomato, olives, parsley, mint</p>
+      </li><li>
+        <p>
+          <span class="name">jibneh wi za'atar</span>          <span class="price">8.00</span><br>za'atar, cheese, tomato, olives, parsley, mint</p>
+      </li><li>
+        <p>
+          <span class="name">fleifleh</span>           <span class="price">8.00</span><br>mild pepper paste, onions, sesame &amp; nigella seeds, olive oil, olives, parsley, mint</p>
+      </li><li>
+        <p>
+          <span class="name">Lahm Bi Ajine</span>          <span class="price">9.00</span><br>ground lamb, aleppo, pomegranate molasses, parsley, mint</p>
+      </li><li>
+        <p>
+          <span class="name">jibneh</span>           <span class="price">7.00</span><br>cheese, tomato, olives, pickles, parsley, mint</p>
+      </li></ul>
+
+
+          </div>
+
+                    <div class="span3">
+
+
+    <h4>man'oushe add-ons</h4>
+    <ul class="menu-items"><li>
+        <p>
+          <span class="name">falafel</span>          <span class="price">3.00</span><br></p>
+      </li><li>
+        <p>
+          <span class="name">chicken</span>          <span class="price">3.00</span><br></p>
+      </li><li>
+        <p>
+          <span class="name">fried halloumi cheese</span>          <span class="price">3.00</span><br></p>
+      </li><li>
+        <p>
+          <span class="name">cheese</span>           <span class="price">1.00</span><br></p>
+      </li><li>
+        <p>
+          <span class="name">gluten free bread</span>          <span class="price">3.00</span><br></p>
+      </li><li>
+        <p>
+          <span class="name">olives/tomato/pickles/ harrisa/tarrator/labneh</span>           <span class="price">0.25</span><br></p>
+      </li></ul>
+
+    <h4>traditional syrian breakfast</h4>
+    <ul class="menu-items"><li>
+        <p>
+          <span class="name">traditional syrian breakfast (serves 2)</span>          <span class="price">35.00</span><br>choice of 2 mana'eesh, cheeses, olives, crudite, hummus, barbari bread, pita, walnuts, dates, kaak bi knafe</p>
+      </li></ul>
+
+
+          </div>
+
+                    <div class="span3">
+
+
+    <h4>Drinks</h4>
+    <ul class="menu-items"><li>
+        <p>
+          <span class="name">mint lemonade</span>          <span class="price">4.00</span><br></p>
+      </li><li>
+        <p>
+          <span class="name">ayran</span>          <span class="price">4.00</span><br>yogurt, salt, water</p>
+      </li><li>
+        <p>
+          <span class="name">Tea</span>          <span class="price">2.00</span><br></p>
+      </li><li>
+        <p>
+          <span class="name">espresso</span>           <span class="price">3.00</span><br></p>
+      </li><li>
+        <p>
+          <span class="name">turkish coffee</span>           <span class="price">3.00</span><br></p>
+      </li><li>
+        <p>
+          <span class="name">french press coffee</span>          <span class="price">5.00</span><br></p>
+      </li><li>
+        <p>
+          <span class="name">sodas</span>          <span class="price">2.00</span><br>coke, diet coke, ginger ale, sprite</p>
+      </li></ul>
+
+
+          </div>
+
+        </div>
+      </div>
+            <div class="menu" id="menu-6">
+        <div class="row-fluid">
+
+
+
+
+
+
+
+                    <div class="span3">
+
+
+    <h4>mezze</h4>    <h6>includes mamnoon arabic bread</h6>
+    <ul class="menu-items"><li>
+        <p>
+          <span class="name">hummus</span>           <span class="price">6.00</span><br>chickpea, tahini, lemon, garlic, aleppo</p>
+      </li><li>
+        <p>
+          <span class="name">muhammara</span>          <span class="price">8.00</span><br>walnut, pepper paste, cumin, garlic, pomegranate molasses</p>
+      </li><li>
+        <p>
+          <span class="name">shamndar bi tahini</span>           <span class="price">7.00</span><br>grated beets, spring green yogurt, garlic, tahini</p>
+      </li><li>
+        <p>
+          <span class="name">baba ghanoush</span>          <span class="price">7.00</span><br>roasted eggplant, tahini, garlic, lemon</p>
+      </li><li>
+        <p>
+          <span class="name">tabbouleh</span>          <span class="price">6.00</span><br>parsley, bulgur, lemon, seasonal vegetables</p>
+      </li></ul>
+
+    <h4>mamnoon @ home</h4>   <h6>available during dinner only</h6>
+    <ul class="menu-items"><li>
+        <p>
+          <span class="name">mamnoon @ home</span>           <span class="price">62.00</span><br>your choice of two mezze, shamandar bi tahini, baba ghanoush, tabbouleh, muhammara, labneh, your choice of two entrees, shish taouk, kefta, seasonal offering, add two baklawa for $5</p>
+      </li></ul>
+
+
+          </div>
+
+                    <div class="span3">
+
+
+    <h4>falafel &amp; man'oushe</h4>    <h6>house made bread baked with toppings</h6>
+    <ul class="menu-items"><li>
+        <p>
+          <span class="name">mamnoon style falafel</span>          <span class="price">10.00</span><br>cabbage, pickles, hummus, spring green yogurt, parsley, mint</p>
+      </li><li>
+        <p>
+          <span class="name">za'atar</span>          <span class="price">7.50</span><br>king of lebanese street food!  wild thyme, sesame &amp; nigella seeds, lemon salt, olive oil, yogurt, tomato, olives, parsley, mint</p>
+      </li><li>
+        <p>
+          <span class="name">jibneh</span>           <span class="price">7.00</span><br>cheese, tomato, olives, pickles, parsley, mint</p>
+      </li><li>
+        <p>
+          <span class="name">jibneh wi za'atar</span>          <span class="price">8.00</span><br>za'atar, cheese, tomato, olives, parsley, mint</p>
+      </li><li>
+        <p>
+          <span class="name">Lahm Bi Ajine</span>          <span class="price">9.00</span><br>ground lamb, aleppo, pomegranate molasses, parsley, mint</p>
+      </li><li>
+        <p>
+          <span class="name">fleifleh</span>           <span class="price">8.00</span><br>mild pepper paste, onions, sesame &amp; nigella seeds, olive oil, olives, parsley, mint</p>
+      </li></ul>
+
+
+          </div>
+
+                    <div class="span3">
+
+
+    <h4>add-ons</h4>    <h6>delicious for your falafel &amp; man'oushe</h6>
+    <ul class="menu-items"><li>
+        <p>
+          <span class="name">falafel</span>          <span class="price">3.00</span><br></p>
+      </li><li>
+        <p>
+          <span class="name">grilled chicken</span>          <span class="price">3.00</span><br></p>
+      </li><li>
+        <p>
+          <span class="name">fried halloumi cheese</span>          <span class="price">3.00</span><br></p>
+      </li><li>
+        <p>
+          <span class="name">cheese</span>           <span class="price">1.00</span><br></p>
+      </li><li>
+        <p>
+          <span class="name">gluten free bread</span>          <span class="price">3.00</span><br></p>
+      </li><li>
+        <p>
+          <span class="name">olives/tomato/pickles/ harrisa/tarrator/labneh</span>           <span class="price">0.25</span><br></p>
+      </li></ul>
+
+    <h4>sides</h4>
+    <ul class="menu-items"><li>
+        <p>
+          <span class="name">"the" harra frites</span>           <span class="price">6.00</span><br>french fries, fresno peppers, za'atar mayonnaise, harra ketchup</p>
+      </li><li>
+        <p>
+          <span class="name">extra arabic bread (3pcs)</span>          <span class="price">2.00</span><br></p>
+      </li><li>
+        <p>
+          <span class="name">gluten free crackers</span>           <span class="price">3.00</span><br>house-made, za'atar spiced</p>
+      </li><li>
+        <p>
+          <span class="name">side of sauce</span>          <span class="price">1.00</span><br>harissa, za'atar mayonnaise, tarrator, harra ketchup</p>
+      </li></ul>
+
+
+          </div>
+
+                    <div class="span3">
+
+
+    <h4>drinks</h4>
+    <ul class="menu-items"><li>
+        <p>
+          <span class="name">mint lemonade</span>          <span class="price">3.50</span><br></p>
+      </li><li>
+        <p>
+          <span class="name">ayran</span>          <span class="price">3.50</span><br>spring green yogurt, salt, water</p>
+      </li><li>
+        <p>
+          <span class="name">sodas</span>          <span class="price">2.00</span><br>coke, diet coke, ginger ale, sprite</p>
+      </li><li>
+        <p>
+          <span class="name">espresso</span>           <span class="price">3.00</span><br></p>
+      </li><li>
+        <p>
+          <span class="name">turkish coffee</span>           <span class="price">3.00</span><br></p>
+      </li><li>
+        <p>
+          <span class="name">bundaberg ginger beer</span>          <span class="price">4.00</span><br></p>
+      </li></ul>
+
+    <h4>helou</h4>    <h6>sweets</h6>
+    <ul class="menu-items"><li>
+        <p>
+          <span class="name">baklawa</span>          <span class="price">3.00</span><br>pistachio, walnut, orange blossom water</p>
+      </li><li>
+        <p>
+          <span class="name">strawberry rose ice cream sandwich</span>           <span class="price">5.00</span><br>strawberry rose ice cream, macaron cookie</p>
+      </li></ul>
+
+
+          </div>
+
+        </div>
+      </div>
+            <div class="menu" id="menu-1084">
+        <div class="row-fluid">
+
+
+
+
+
+
+
+                    <div class="span12">
+
+
+    <h4>happy hour food</h4>    <h6>our happy hour is first come first served at the front of the restaurant only</h6>
+    <ul class="menu-items"><li>
+        <p>
+          <span class="name">hummus</span>           <span class="price">3.00</span><br>chickpea, tahini, lemon, garlic, aleppo</p>
+      </li><li>
+        <p>
+          <span class="name">shamandar</span>          <span class="price">4.00</span><br>grated beets, tahini, spring green yogurt</p>
+      </li><li>
+        <p>
+          <span class="name">baba ganoush</span>           <span class="price">4.00</span><br>roasted eggplant, tahini, lemon</p>
+      </li><li>
+        <p>
+          <span class="name">marinated olives</span>           <span class="price">3.00</span><br>orange, coriander, bay</p>
+      </li><li>
+        <p>
+          <span class="name">happy za'atar man'oushe</span>          <span class="price">6.00</span><br>king of lebanese street food!  wild thyme, sesame &amp; nigella seeds, yogurt, tomato, olives, herb salad</p>
+      </li><li>
+        <p>
+          <span class="name">happy fleifleh man'oushe</span>           <span class="price">5.00</span><br>red pepper and onion confit, sesame &amp; nigella seeds, nigella, herb salad</p>
+      </li><li>
+        <p>
+          <span class="name">happy jibneh man'oushe</span>           <span class="price">5.00</span><br>akawi and caciocavallo cheeses</p>
+      </li><li>
+        <p>
+          <span class="name">happy lahm bi ajine man'oushe</span>          <span class="price">6.00</span><br>spicy ground lamb, pomegranate molasses, herb salad</p>
+      </li><li>
+        <p>
+          <span class="name">falafel (4 pieces)</span>           <span class="price">4.00</span><br>chickpea fritters, garlic yogurt, cabbage</p>
+      </li><li>
+        <p>
+          <span class="name">harra frites</span>           <span class="price">5.00</span><br>french fries, fresno peppers, za'atar mayonnaise, harra ketchup</p>
+      </li></ul>
+
+
+          </div>
+
+
+
+
+        </div>
+      </div>
+
+    </div>
+  </section>
