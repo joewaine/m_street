@@ -4,13 +4,14 @@
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 
-	<title>{{ "Craft Commerce"|t }}</title>
+	<title>Mamnoon Street - Order</title>
 
 	<meta name="description" content="{{ "The example templates for Craft Commerce"|t }}">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 	<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js"></script>
 
 	<link rel="stylesheet" type='text/css' href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600'>
@@ -29,6 +30,10 @@
 	<div id="header" class="container">
 		<div class="row">
 			<div class="twelve columns">
+
+
+
+
 				<a href="{{ url('order') }}">{%- include "order/_images/logo" with {'class': 'logo'} -%}</a>
 
 				{% include "order/_includes/nav" %}
@@ -88,15 +93,16 @@
 
 <div class="module-container">
 
+ <h5>{{ product.title }}</h5>
+            <!-- <img src="/assets/img/zaatar.jpg" alt="" style="width:100%;"> -->
 
-
-
-            {% include "order/_images/product" with { class: 'u-max-full-width' } %}
             {% if product.variants|length %}
-                <form method="POST">
+                <form method="POST" id="addToCartForm">
                     <input type="hidden" name="action" value="commerce/cart/updateCart">
                     <input type="hidden" name="redirect" value="order/cart">
                     <input type="hidden" name="qty" value="1">
+                      <!-- <input type="checkbox" name="vehicle" value="Bike"> I have a bike<br> -->
+                      <!-- <input type="checkbox" name="vehicle" value="Car" checked> I have a car<br> -->
                     {{ getCsrfInput() }}
 
                     <select name="purchasableId" class="purchasableId">
@@ -109,10 +115,10 @@
                         {%- endfor -%}
                     </select>
 
-                    <select name="options[giftWrapped]">
+               <!--      <select name="options[giftWrapped]">
                         <option value="no">No gift wrap.</option>
                         <option value="yes">Gift wrapped.</option>
-                    </select>
+                    </select> -->
                     {% if product.unlimitedStock or (product.unlimitedStock == false and product.totalStock > 0 ) %}
                         <button type="submit">{{ "Add to cart"|t }}</button>
                     {% else %}
@@ -144,6 +150,14 @@
 
 
 
+<!-- shopping cart module -->
+
+
+{% include "parts/cart" %}
+
+<!-- shopping cart module -->
+
+
 
 
 
@@ -151,17 +165,28 @@
 
 
 $('.page-menu-item').click(function(){
-  $('.variant-modal:eq('+ $(this).index()+')').fadeIn();
-});
+  // $('.variant-modal:eq('+ $(this).index()+')').fadeIn();
 
-
-$('.close-variant-modal').click(function(){
-
-  $('.visible-modal').removeClass('visible-modal');
-
-  $(this).removeClass('visible');
+$('.variant-modal').remove();
+$('body').prepend('<div class="variant-modal"><button class="close-variant-modal">close</button><div class="modal-background"><div class="module-container">'+ $(this).find('.prod-title').text() + '<form method="POST" id="addToCartForm">' + $(this).find("form").html() + '</form></div><h1>modal</h1></div></div>');
 
 });
+
+
+
+$('body').on('click', '.close-variant-modal', function(){
+
+$('.variant-modal').remove();
+
+});
+
+// $('.close-variant-modal').click(function(){
+
+//   $('.visible-modal').removeClass('visible-modal');
+
+//   $(this).removeClass('visible');
+
+// });
 
 
 $('.close-variant-modal').click(function(){
@@ -171,8 +196,57 @@ $(this).parent().fadeOut();
 
 });
 
+$('.cart-expand').click(function(){
+$('.cart-drawer').toggleClass('drawer-out');
+});
 
 
+
+
+
+$(function() {
+
+    // $form = $("#addToCartForm");
+
+    // handle submits via ajax
+
+    $('body').on('submit', '#addToCartForm', function(e) {
+
+        //Prevent the default submission
+        e.preventDefault();
+
+       //Get the form data
+        var form_data = $("#addToCartForm").serializeArray();
+
+        // ajax it over to the server
+        $.ajax({
+            type: 'post',
+            url: '/',
+            data: form_data,
+            success: function(response) {
+                if (response.success) {
+                    $('.cart-drawer').addClass('drawer-out');
+
+                    $cartChamber = $('.cart-drawer.drawer-out .row .twelve.columns');
+
+                      var lineItemsCt = response.cart.lineItems;
+                      var sp = '&nbsp;';
+
+                        for(i=0;i<response.cart.totalLineItems;i++){
+                        $cartChamber.prepend(lineItemsCt[Object.keys(lineItemsCt)[i]]['total'] + sp);
+                        $cartChamber.prepend(lineItemsCt[Object.keys(lineItemsCt)[i]]['qty'] + sp);
+                        $cartChamber.prepend(lineItemsCt[Object.keys(lineItemsCt)[i]]['price'] + sp);
+                        $cartChamber.prepend(lineItemsCt[Object.keys(lineItemsCt)[i]]['snapshot'].product.title + sp);
+
+                    }
+                }else{
+                    alert("Failure!");
+                }
+            }
+        });
+    });
+
+});
 </script>
 
 

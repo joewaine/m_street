@@ -11,18 +11,50 @@
 
 
 
-    <form id="ajax-contact" method="post" action="database.php" style="position:relative;">
+<form id="ajax-contact" method="post" action="mailer.php" style="position:relative;">
 
             <div class="field for-recipientEmail" style="display:none;">
                 <!-- <label for="name">Name:</label> -->
-        <input placeholder="recipient" type="text" id="recipient" name="recipient" value="{{ block.eventsbookingRecipientEmail }}" required>
+        <input placeholder="recipient" type="text" id="recipient" name="recipient" value="jen@mamnoonrestaurant.com" required="">
+            </div>
+
+            <div class="field for-name">
+                <!-- <label for="name">Name:</label> -->
+                <input placeholder="name" type="text" id="name" name="name" required="">
+            </div>
+
+            <div class="field for-phone">
+                <!-- <label for="email">Phone:</label> -->
+                <input placeholder="phone number" type="phone" id="phone" name="phone" required="">
+            </div>
+
+            <div class="field for-email">
+                <!-- <label for="email">Email:</label> -->
+                <input placeholder="email" type="email" id="email" name="email" required="">
             </div>
 
 
+            <div class="field for-subject">
+                <!-- <label for="subject">Subject:</label> -->
+                <input placeholder="subject" type="text" id="subject" name="subject" required="">
+            </div>
+
+
+            <div class="field for-message">
+                <!-- <label for="message">Message:</label> -->
+
+
+
+
+                <textarea placeholder="message" id="message" name="message" required=""></textarea>
+
+
+
+            </div>
 
 
 <div class="field submission">
-    <input type="submit" value="Send" style="z-index: 1000;">
+    <input class="redsendbutton" type="submit" value="SEND" style="z-index: 1000;">
 
 </div>
 
@@ -31,6 +63,10 @@
                 <button type="submit">Send</button>
             </div> -->
         </form>
+
+
+
+
 
 </section>
 

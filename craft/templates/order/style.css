@@ -730,8 +730,6 @@ body{
 
 
 
-
-
 .modal-background{
     width: 100%;
     background-color: rgba(0,0,0,.5);
@@ -747,7 +745,10 @@ body{
 }
 
 .variant-modal{
-    display: none;
+    position: absolute;
+    z-index: 10000;
+    width: 100%;
+
 }
 
 .visible-modal{
@@ -790,3 +791,39 @@ body{
     margin: 0 auto 20px;
     background: white;
 }
+
+
+.cart-drawer{
+  background-color: pink;
+  position: fixed;
+  width: 35%;
+  right: 0;
+  right: -35%;
+  top: 0;
+  background: white;
+  border-left: 0px solid red;
+  /*margin-left: -20px;*/
+  transition: .5s;
+  z-index: 20000;
+}
+
+.cart-drawer.drawer-out{
+  right: 0;
+}
+
+.cart-expand{
+    float: left;
+    width: 10px;
+    height: 100vh;
+    z-index: 1000;
+    position: absolute;
+    background: pink;
+    font-size: 10px;
+    margin-left: -10px;
+}
+
+.expand-text{
+ transform: rotate(90deg);
+ cursor: pointer;
+}
+

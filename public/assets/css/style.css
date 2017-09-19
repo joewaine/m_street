@@ -26,6 +26,8 @@
     #menu,
     .section-region{ display: block; padding: 25px; background: rgba(255,255,255,0.8); margin-top: 40px;}
 
+#menu{margin-top: 100px;}
+
     #content h1,
     #menu h1,
     .section-region h1{ margin-top: 0; font-size: 35px; font-weight: bold; }
@@ -412,5 +414,39 @@ text-align: center;
 /*social links*/
 
 
+#nav li{ display: inline-block; text-align: center; background: red;}
+
+#nav ul{width: 100%; padding: 10px; margin-bottom: 50px;}
 
 
+.hows-line{
+  float: right; top: 0;
+  right: 0;
+}
+
+.line-modal{
+  position: absolute;
+  z-index: 100;
+  background: rgba(0,0,0,.5);
+  width: 100%;
+  text-align: center;
+  top: 0;
+  left: 0;
+  padding-top: 100px;
+  height: 100vh;
+}
+
+
+.cart-draw{
+  position: fixed;
+  width: 25%;
+  right: 0;
+  top: 0;
+}
+
+.cart-draw.drawer-out{
+  position: fixed;
+  width: 25%;
+  right: 0;
+  top: 0;
+}
