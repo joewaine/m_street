@@ -30,6 +30,10 @@
 {% endif %}
 
 
+<div class="item-description">
+{{ product.body }}
+</div>
+
 
         <div class="twelve columns">
             <!-- <h5>{% if product.url %}{{ product.link }}{% else %}{{ product.title }}{% endif %}</h5> -->
@@ -37,6 +41,7 @@
             {{ product.variants[0].salePrice|commerceCurrency(cart.currency) }}
             {% if product.variants|length %}
             <div class="product-form" style="display: none;">
+            <!-- <div class="product-form" style="display: block;"> -->
                 <form method="POST" id="addToCartForm">
                     <input type="hidden" name="action" value="commerce/cart/updateCart">
                     <input type="hidden" name="redirect" value="order/cart">
@@ -44,6 +49,42 @@
                       <!-- <input type="checkbox" name="vehicle" value="Bike"> I have a bike<br> -->
                       <!-- <input type="checkbox" name="vehicle" value="Car" checked> I have a car<br> -->
                     {{ getCsrfInput() }}
+
+
+
+
+shitfucker?
+     <input type="checkbox" id="{{ option }}" name="options[shit]" value="fucker">
+
+
+
+<!--     <select name="options[engraving]">
+        <option value="happy-birthday">Happy Birthday</option>
+        <option value="good-riddance">Good Riddance</option>
+    </select>
+
+    <select name="options[giftwrap]">
+        <option value="yes">Yes Please</option>
+        <option value="no">No Thanks</option>
+    </select> -->
+
+
+    {% for option in product.zatarAddOns.options %}
+        <input type="checkbox" id="{{ option }}" name="{{ option }}" value="{{ option }}">
+        <label for="{{ option }}">{{ option }}</label>
+            <br>
+    {% endfor %}
+
+    <br>
+    <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
+        <label for="subscribeNews">Subscribe to newsletter?</label>
+
+    <br>
+    <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
+        <label for="subscribeNews">Subscribe to newsletter?</label>
+
+
+ <textarea class="addons-list" type="textbox" name="note" value=""></textarea>
 
 
 

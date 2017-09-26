@@ -160,7 +160,7 @@
 <script type="text/javascript">
 
 
-$('.page-menu-item').click(function(){
+$('.page-menu-item img').click(function(){
   // $('.variant-modal:eq('+ $(this).index()+')').fadeIn();
 
 
@@ -168,7 +168,7 @@ $('.cart-drawer').removeClass('drawer-out');
 
 
 $('.variant-modal').remove();
-$('body').prepend('<div class="variant-modal"><button class="close-variant-modal">close</button><div class="modal-background"><div class="module-container"><img src="'+ $(this).find('.prodImage').attr('src') + '">' + $(this).find('.prod-title').text() + '<form method="POST" id="addToCartForm">' + $(this).find("form").html() + '</form></div></div></div>').fadeIn();
+$('body').prepend('<div class="variant-modal"><button class="close-variant-modal">close</button><div class="modal-background"><div class="module-container"><img src="'+ $(this).parent().find('.prodImage').attr('src') + '">' + $(this).parent().find('.prod-title').text() + $(this).parent().find('.item-description').text() + '<form method="POST" id="addToCartForm">' + $(this).parent().find("form").html() + '</form></div></div></div>').fadeIn();
 
 
 });
@@ -269,6 +269,51 @@ $cartChamber.append('<tr><td><strong>' + lineItemsCt[Object.keys(lineItemsCt)[i]
     });
 
 });
+
+
+
+
+$('.addons-list').val('more text');
+
+
+$('input[type="checkbox"]').change(function() {
+    // this will contain a reference to the checkbox
+    if (this.checked) {
+// alert('chekced');
+
+
+if($('.addons-list').val() == ''){
+    $('.addons-list').val($(this).attr('value'));
+}else{
+    $('.addons-list').val($('.addons-list').val() + ', ' + $(this).attr('value'));
+}
+
+
+
+
+$(this).parent().parent().find('.purchasableId option[value="33"]').attr("selected", "selected");
+
+
+
+
+    } else {
+        // the checkbox is now no longer checked
+
+
+$('.addons-list').val('');
+
+
+
+    }
+});
+
+
+
+
+
+
+
+
 </script>
 
 
