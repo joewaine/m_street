@@ -23,15 +23,18 @@
 
         <div class="three columns page-menu-item">
 
-            <img src="/assets/img/zaatar.jpg" alt="" style="width:100%;">
-image:
-{{ product.title }}
+
+
+{% if product.image.first %}
+<img class="prodImage" src="/assets/img/{{ product.image.first.filename }}" style="width:100%;">
+{% endif %}
+
+
 
         <div class="twelve columns">
             <!-- <h5>{% if product.url %}{{ product.link }}{% else %}{{ product.title }}{% endif %}</h5> -->
-            <h5 class="prod-title">{{ product.title }}</h5>
-
-
+            <span class="prod-title">{{ product.title }}</span>
+            {{ product.variants[0].salePrice|commerceCurrency(cart.currency) }}
             {% if product.variants|length %}
             <div class="product-form" style="display: none;">
                 <form method="POST" id="addToCartForm">
@@ -42,12 +45,15 @@ image:
                       <!-- <input type="checkbox" name="vehicle" value="Car" checked> I have a car<br> -->
                     {{ getCsrfInput() }}
 
+
+
+
                     <select name="purchasableId" class="purchasableId">
                         {%- for purchasable in product.variants -%}
                             <option {% if purchasable.stock <= 0 and purchasable.unlimitedStock == false %}disabled {% endif %}
                                     data-info="product-{{ product.id }}-purchasable-{{ purchasable.id }}"
                                     value="{{ purchasable.purchasableId }}">
-                                    {{ purchasable.description }} {{ purchasable.salePrice|commerceCurrency(cart.currency) }}
+                                    {{ purchasable.sku }} {{ purchasable.salePrice|commerceCurrency(cart.currency) }}
                             </option>
                         {%- endfor -%}
                     </select>

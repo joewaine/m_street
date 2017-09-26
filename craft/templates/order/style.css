@@ -314,6 +314,7 @@ button:not(.stripe-button-el),
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
+
     display: inline-block;
     height: 38px;
     padding: 0 30px;
@@ -800,11 +801,12 @@ body{
   right: 0;
   right: -35%;
   top: 0;
-  background: white;
+  background: #FFFF00;
   border-left: 0px solid red;
   /*margin-left: -20px;*/
   transition: .5s;
   z-index: 20000;
+  height: 1200px;
 }
 
 .cart-drawer.drawer-out{
@@ -826,4 +828,25 @@ body{
  transform: rotate(90deg);
  cursor: pointer;
 }
+
+/*.variant-modal{
+opacity: 0;
+ transition: opacity .25s ease-in-out;
+   -moz-transition: opacity .25s ease-in-out;
+   -webkit-transition: opacity .25s ease-in-out;
+}
+
+.variant-modal.visible{
+    opacity: 1;
+}*/
+
+.cart-area{
+    width: 100%;
+}
+
+
+.align-r{
+    text-align: right;
+}
+
 

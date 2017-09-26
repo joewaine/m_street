@@ -32,6 +32,7 @@
 			<div class="twelve columns">
 
 
+<div class="wonderful"></div>
 
 
 				<a href="{{ url('order') }}">{%- include "order/_images/logo" with {'class': 'logo'} -%}</a>
@@ -150,15 +151,10 @@
 
 
 
+
 <!-- shopping cart module -->
-
-
 {% include "parts/cart" %}
-
 <!-- shopping cart module -->
-
-
-
 
 
 <script type="text/javascript">
@@ -167,27 +163,20 @@
 $('.page-menu-item').click(function(){
   // $('.variant-modal:eq('+ $(this).index()+')').fadeIn();
 
+
+$('.cart-drawer').removeClass('drawer-out');
+
+
 $('.variant-modal').remove();
-$('body').prepend('<div class="variant-modal"><button class="close-variant-modal">close</button><div class="modal-background"><div class="module-container">'+ $(this).find('.prod-title').text() + '<form method="POST" id="addToCartForm">' + $(this).find("form").html() + '</form></div><h1>modal</h1></div></div>');
+$('body').prepend('<div class="variant-modal"><button class="close-variant-modal">close</button><div class="modal-background"><div class="module-container"><img src="'+ $(this).find('.prodImage').attr('src') + '">' + $(this).find('.prod-title').text() + '<form method="POST" id="addToCartForm">' + $(this).find("form").html() + '</form></div></div></div>').fadeIn();
+
 
 });
-
 
 
 $('body').on('click', '.close-variant-modal', function(){
-
 $('.variant-modal').remove();
-
 });
-
-// $('.close-variant-modal').click(function(){
-
-//   $('.visible-modal').removeClass('visible-modal');
-
-//   $(this).removeClass('visible');
-
-// });
-
 
 $('.close-variant-modal').click(function(){
 
@@ -204,20 +193,21 @@ $('.cart-drawer').toggleClass('drawer-out');
 
 
 
+// $('.cart-loadin').load("/order/_ajax-injects/cart.html").fadeIn('fast');
+
+
+
+
 $(function() {
 
-    // $form = $("#addToCartForm");
-
     // handle submits via ajax
-
     $('body').on('submit', '#addToCartForm', function(e) {
-
+$('.cart-partition').empty();
         //Prevent the default submission
         e.preventDefault();
 
        //Get the form data
         var form_data = $("#addToCartForm").serializeArray();
-
         // ajax it over to the server
         $.ajax({
             type: 'post',
@@ -225,25 +215,57 @@ $(function() {
             data: form_data,
             success: function(response) {
                 if (response.success) {
+
+
+                    $('#cart-table').remove();
+
                     $('.cart-drawer').addClass('drawer-out');
 
-                    $cartChamber = $('.cart-drawer.drawer-out .row .twelve.columns');
+                    console.log(response.cart);
+                    $cartChamber = $('.cart-drawer.drawer-out .row .twelve.columns .cart-area');
+                    $cartChamber.empty();
 
-                      var lineItemsCt = response.cart.lineItems;
-                      var sp = '&nbsp;';
+                    var lineItemsCt = response.cart.lineItems;
+
+
+
+
+                    var sp = '&nbsp;';
+
+                    $cartChamber.append('<thead><tr><th>Product</th><th>Qty</th><th class="text-right">Price</th><th class="text-right">Total Item Cost</th></tr></thead>');
 
                         for(i=0;i<response.cart.totalLineItems;i++){
-                        $cartChamber.prepend(lineItemsCt[Object.keys(lineItemsCt)[i]]['total'] + sp);
-                        $cartChamber.prepend(lineItemsCt[Object.keys(lineItemsCt)[i]]['qty'] + sp);
-                        $cartChamber.prepend(lineItemsCt[Object.keys(lineItemsCt)[i]]['price'] + sp);
-                        $cartChamber.prepend(lineItemsCt[Object.keys(lineItemsCt)[i]]['snapshot'].product.title + sp);
+                            // $cartChamber.append('<tr>');
+
+$cartChamber.append('<tr><td><strong>' + lineItemsCt[Object.keys(lineItemsCt)[i]]['snapshot']['product']['title'] + '</strong><br>(' + lineItemsCt[Object.keys(lineItemsCt)[i]]['snapshot'].sku + ')' + '</td><td>' + lineItemsCt[Object.keys(lineItemsCt)[i]]['qty'] + '</td><td class="align-r">$' + lineItemsCt[Object.keys(lineItemsCt)[i]]['price'].slice(0, -2) + '<button class="onemore">+</button><button class="oneless">-</button></td><td class="align-r">$'+ lineItemsCt[Object.keys(lineItemsCt)[i]]['total'] +'</td></tr>');
 
                     }
+
+    $cartChamber.append('<tr><td class="align-r" colspan="4">Total Price: '+ response.cart.itemTotal +'</td></tr>');
+
+
+
+
+
                 }else{
                     alert("Failure!");
                 }
+
+
+
+
+
             }
+
+
+
+
         });
+
+
+
+                $('.variant-modal').fadeOut();
+
     });
 
 });

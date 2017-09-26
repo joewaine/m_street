@@ -37,9 +37,8 @@
 			<h1>
 				<a href="{{ siteUrl }}">
 {% for logoImage in craft.entries.section('siteLogo') %}
-{{ socialItem.title }}
 {% for asset in logoImage.image %}
-    <img src="{{ asset.url }}" alt="{{ socialItem.title }}" alt="logo" style="width:100%;">
+    <img src="{{ asset.url }}" alt="" alt="logo" style="width:100%;">
 {% endfor %}
 {% endfor %}
 
