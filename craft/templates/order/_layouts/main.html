@@ -13,10 +13,20 @@
 	<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js"></script>
 
+
+
+
 	<link rel="stylesheet" type='text/css' href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600'>
 	<link rel="stylesheet" type='text/css' href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
 	<link rel="stylesheet" type='text/css' href="{{ url('order/style.css') }}">
+
+    <style type="text/css">
+        body{
+            background: pink !important;
+        }
+    </style>
+
 
 </head>
 <body>
@@ -73,18 +83,9 @@
 
 <!-- .page-menu-item -->
 
-
-
-
-
-
 <!-- second one for modals -->
 
-
-
-
 <div class="variant-container">
-
 
 {% for product in craft.commerce.products.limit(5).find() %}
 <div class="variant-modal" style="display:none;">
@@ -94,16 +95,14 @@
 
 <div class="module-container">
 
- <h5>{{ product.title }}</h5>
-            <!-- <img src="/assets/img/zaatar.jpg" alt="" style="width:100%;"> -->
+             <h5>{{ product.title }}</h5>
 
             {% if product.variants|length %}
                 <form method="POST" id="addToCartForm">
                     <input type="hidden" name="action" value="commerce/cart/updateCart">
                     <input type="hidden" name="redirect" value="order/cart">
                     <input type="hidden" name="qty" value="1">
-                      <!-- <input type="checkbox" name="vehicle" value="Bike"> I have a bike<br> -->
-                      <!-- <input type="checkbox" name="vehicle" value="Car" checked> I have a car<br> -->
+
                     {{ getCsrfInput() }}
 
                     <select name="purchasableId" class="purchasableId">
@@ -116,10 +115,6 @@
                         {%- endfor -%}
                     </select>
 
-               <!--      <select name="options[giftWrapped]">
-                        <option value="no">No gift wrap.</option>
-                        <option value="yes">Gift wrapped.</option>
-                    </select> -->
                     {% if product.unlimitedStock or (product.unlimitedStock == false and product.totalStock > 0 ) %}
                         <button type="submit">{{ "Add to cart"|t }}</button>
                     {% else %}
@@ -147,32 +142,28 @@
 
 <!-- end second one for modals -->
 
-
-
-
-
-
 <!-- shopping cart module -->
 {% include "parts/cart" %}
 <!-- shopping cart module -->
+
+
+<footer id="footer">
+    {% include "parts/social" %}
+</footer>
+
 
 
 <script type="text/javascript">
 
 
 $('.page-menu-item img').click(function(){
-  // $('.variant-modal:eq('+ $(this).index()+')').fadeIn();
-
 
 $('.cart-drawer').removeClass('drawer-out');
 
-
 $('.variant-modal').remove();
-$('body').prepend('<div class="variant-modal"><button class="close-variant-modal">close</button><div class="modal-background"><div class="module-container"><img src="'+ $(this).parent().find('.prodImage').attr('src') + '">' + $(this).parent().find('.prod-title').text() + $(this).parent().find('.item-description').text() + '<form method="POST" id="addToCartForm">' + $(this).parent().find("form").html() + '</form></div></div></div>').fadeIn();
-
+$('body').prepend('<div class="variant-modal"><button class="close-variant-modal">close</button><div class="modal-background"><div class="module-container"><img src="'+ $(this).parent().find('.prodImage').attr('src') + '">' + '<br><div class="modal-form-region">' + $(this).parent().find('.prod-title').text() + '<br>' + $(this).parent().find('.item-description').text() + '<form method="POST" id="addToCartForm">' + $(this).parent().find("form").html() + '</form></div></div></div></div>').fadeIn();
 
 });
-
 
 $('body').on('click', '.close-variant-modal', function(){
 $('.variant-modal').remove();
@@ -190,22 +181,12 @@ $('.cart-drawer').toggleClass('drawer-out');
 });
 
 
-
-
-
-// $('.cart-loadin').load("/order/_ajax-injects/cart.html").fadeIn('fast');
-
-
-
-
 $(function() {
-
     // handle submits via ajax
     $('body').on('submit', '#addToCartForm', function(e) {
-$('.cart-partition').empty();
+    $('.cart-partition').empty();
         //Prevent the default submission
         e.preventDefault();
-
        //Get the form data
         var form_data = $("#addToCartForm").serializeArray();
         // ajax it over to the server
@@ -216,7 +197,6 @@ $('.cart-partition').empty();
             success: function(response) {
                 if (response.success) {
 
-
                     $('#cart-table').remove();
 
                     $('.cart-drawer').addClass('drawer-out');
@@ -226,45 +206,25 @@ $('.cart-partition').empty();
                     $cartChamber.empty();
 
                     var lineItemsCt = response.cart.lineItems;
-
-
-
-
                     var sp = '&nbsp;';
 
                     $cartChamber.append('<thead><tr><th>Product</th><th>Qty</th><th class="text-right">Price</th><th class="text-right">Total Item Cost</th></tr></thead>');
 
                         for(i=0;i<response.cart.totalLineItems;i++){
-                            // $cartChamber.append('<tr>');
 
 $cartChamber.append('<tr><td><strong>' + lineItemsCt[Object.keys(lineItemsCt)[i]]['snapshot']['product']['title'] + '</strong><br>(' + lineItemsCt[Object.keys(lineItemsCt)[i]]['snapshot'].sku + ')' + '</td><td>' + lineItemsCt[Object.keys(lineItemsCt)[i]]['qty'] + '</td><td class="align-r">$' + lineItemsCt[Object.keys(lineItemsCt)[i]]['price'].slice(0, -2) + '<button class="onemore">+</button><button class="oneless">-</button></td><td class="align-r">$'+ lineItemsCt[Object.keys(lineItemsCt)[i]]['total'] +'</td></tr>');
 
                     }
 
-    $cartChamber.append('<tr><td class="align-r" colspan="4">Total Price: '+ response.cart.itemTotal +'</td></tr>');
-
-
-
-
+                $cartChamber.append('<tr><td class="align-r" colspan="4">Total Price: '+ response.cart.itemTotal +'</td></tr>');
 
                 }else{
                     alert("Failure!");
                 }
-
-
-
-
-
             }
-
-
-
-
         });
 
-
-
-                $('.variant-modal').fadeOut();
+    $('.variant-modal').fadeOut();
 
     });
 
@@ -272,50 +232,31 @@ $cartChamber.append('<tr><td><strong>' + lineItemsCt[Object.keys(lineItemsCt)[i]
 
 
 
-
-$('.addons-list').val('more text');
-
-
 $('input[type="checkbox"]').change(function() {
-    // this will contain a reference to the checkbox
+
+
+
+
     if (this.checked) {
-// alert('chekced');
 
-
-if($('.addons-list').val() == ''){
-    $('.addons-list').val($(this).attr('value'));
-}else{
-    $('.addons-list').val($('.addons-list').val() + ', ' + $(this).attr('value'));
-}
+            if($('.addons-list').val() == ''){
+                $('.addons-list').val($(this).attr('value'));
+            }else{
+                $('.addons-list').val($('.addons-list').val() + ', ' + $(this).attr('value'));
+            }
 
 
 
 
 $(this).parent().parent().find('.purchasableId option[value="33"]').attr("selected", "selected");
 
-
-
-
     } else {
-        // the checkbox is now no longer checked
-
 
 $('.addons-list').val('');
-
-
 
     }
 });
 
-
-
-
-
-
-
-
 </script>
-
-
 </body>
 </html>

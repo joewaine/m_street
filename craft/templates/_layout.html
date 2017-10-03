@@ -18,14 +18,15 @@
   <link href="http://fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet" type="text/css">
 
 
+<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+<link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+
 
     {% includeCssFile "assets/css/style.css" %}
 </head>
 
 <body>
-
-
-<div class="fullscreen-bg">
+    <div class="fullscreen-bg">
     <video loop muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
         <source src="assets/street.mp4" type="video/mp4">
     </video>
@@ -33,9 +34,18 @@
 
 
 	<div id="container">
+<button class="hows-line">hows the line?</button>
+
+        {% include "parts/social" %}
 		<header id="header">
+
+
 			<h1>
 				<a href="{{ siteUrl }}">
+
+
+<img class="header-logo" src="assets/logo.png" alt="Mamnoon Street">
+
 {% for logoImage in craft.entries.section('siteLogo') %}
 {% for asset in logoImage.image %}
     <img src="{{ asset.url }}" alt="" alt="logo" style="width:100%;">
@@ -69,15 +79,35 @@
 
 
 
+{% if entry.section == "Homepage" %}
+<h1></h1>
+
+{% include "parts/carousel" %}
+
 
 
 {% include "parts/menu" %}
 
-
-{% include "parts/contact" %}
+<!-- // parts/contact was removed from here -->
 
 
 {% include "parts/hours-location" %}
+
+{% endif %}
+
+{% if entry.section == "about" %}
+<h1>this is the about page</h1>
+
+
+{{entry.body}}
+
+{% endif %}
+
+
+
+
+
+
 
 
 		<footer id="footer">
@@ -86,12 +116,44 @@
 	</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="/assets/js/owl.carousel.min.js"></script>
+
 <script type="text/javascript" src="/assets/js/swipe.min.js"></script>
 <script type="text/javascript" src="/assets/js/jquery.scrolldepth.min.js"></script>
 <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/assets/js/bootstrap-transition.js"></script>
 <script type="text/javascript" src="/assets/js/unslider.js"></script>
 <script type="text/javascript" src="/assets/js/jquery.sticky.js"></script>
+
+
+
+
+<script type="text/javascript">
+
+
+$('.owl-carousel').owlCarousel({
+    rtl:true,
+    loop:true,
+    margin:10,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:1
+        },
+        1000:{
+            items:1
+        }
+    }
+})
+
+
+</script>
+
+
 <script type="text/javascript">
 
 $('.menu-nav li:not(:last-child)').click(function(){

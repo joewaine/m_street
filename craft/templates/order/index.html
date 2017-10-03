@@ -1,28 +1,15 @@
 {% extends 'order/_layouts/main' %}
 
 {% block main %}
-<!-- 	<div class="row">
-		<div class="twelve columns">
-			<p>These are the Craft Commerce example templates.</p>
-			<p>Resources:</p>
-			<ul>
-				<li><a href="https://craftcommerce.com/docs">Craft Commerce Documentation</a>.</li>
-				<li><a href="https://craftcms.com/docs/introduction">Craft CMS Documentation</a>.</li>
-				<li><a href="http://craftcms.stackexchange.com">Craft CMS Stack Exchange</a>. Use the <code>plugin-craftcommerce</code> tag.</li>
-				<li><a href="https://craftcms.com/community#slack">Slack Community</a>. Use the <code>#craftcommerce</code> channel.</li>
-			</ul>
-		</div>
-	</div> -->
 
-
-
-
+<span>index.html</span>
 
     <div class="row product">
 {% for product in craft.commerce.products.limit(5).find() %}
 
-        <div class="three columns page-menu-item">
+        <div class="six columns page-menu-item">
 
+<div class="product-spread">
 
 
 {% if product.image.first %}
@@ -30,18 +17,24 @@
 {% endif %}
 
 
-<div class="item-description">
-{{ product.body }}
-</div>
+
 
 
         <div class="twelve columns">
-            <!-- <h5>{% if product.url %}{{ product.link }}{% else %}{{ product.title }}{% endif %}</h5> -->
-            <span class="prod-title">{{ product.title }}</span>
-            {{ product.variants[0].salePrice|commerceCurrency(cart.currency) }}
+
+<span class="price">
+    {{ product.variants[0].salePrice|commerceCurrency(cart.currency) }}
+</span>
+
+<span class="prod-title">{{ product.title }}</span>
+
+<div class="item-description">
+    {{ product.body }}
+</div>
+
             {% if product.variants|length %}
-            <div class="product-form" style="display: none;">
-            <!-- <div class="product-form" style="display: block;"> -->
+            <!-- <div class="product-form" style="display: none;"> -->
+            <div class="product-form" style="display: block;">
                 <form method="POST" id="addToCartForm">
                     <input type="hidden" name="action" value="commerce/cart/updateCart">
                     <input type="hidden" name="redirect" value="order/cart">
@@ -51,42 +44,28 @@
                     {{ getCsrfInput() }}
 
 
+{% if product.zatarAddOns %}
+<h6>is</h6>
+{% else %}
+<h6>isnt</h6>
+{% endif %}
 
-
-shitfucker?
-     <input type="checkbox" id="{{ option }}" name="options[shit]" value="fucker">
-
-
-
-<!--     <select name="options[engraving]">
-        <option value="happy-birthday">Happy Birthday</option>
-        <option value="good-riddance">Good Riddance</option>
-    </select>
-
-    <select name="options[giftwrap]">
-        <option value="yes">Yes Please</option>
-        <option value="no">No Thanks</option>
-    </select> -->
-
-
+{% if product.zatarAddOns %}
+<div class="row">
     {% for option in product.zatarAddOns.options %}
-        <input type="checkbox" id="{{ option }}" name="{{ option }}" value="{{ option }}">
-        <label for="{{ option }}">{{ option }}</label>
-            <br>
+    <div class="three columns">
+        <input type="checkbox" id="{{ option }}" name="{{ option }}" value="{{ option }}" style="font-size:10px;float:left;">
+        <label for="{{ option }}" style="font-size:10px;float:left;">{{ option }}</label>
+            <!-- <br> -->
+            </div>
     {% endfor %}
+</div>
+{% endif %}
 
-    <br>
-    <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
-        <label for="subscribeNews">Subscribe to newsletter?</label>
-
-    <br>
-    <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
-        <label for="subscribeNews">Subscribe to newsletter?</label>
-
-
+<br>
  <textarea class="addons-list" type="textbox" name="note" value=""></textarea>
 
-
+<br>
 
 
                     <select name="purchasableId" class="purchasableId">
@@ -98,11 +77,8 @@ shitfucker?
                             </option>
                         {%- endfor -%}
                     </select>
+<br>
 
-               <!--      <select name="options[giftWrapped]">
-                        <option value="no">No gift wrap.</option>
-                        <option value="yes">Gift wrapped.</option>
-                    </select> -->
                     {% if product.unlimitedStock or (product.unlimitedStock == false and product.totalStock > 0 ) %}
                         <button type="submit">{{ "Add to cart"|t }}</button>
                     {% else %}
@@ -139,7 +115,7 @@ shitfucker?
         </div>
 
 
-
+</div>
         </div>
 
 
