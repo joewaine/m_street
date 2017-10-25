@@ -26,6 +26,8 @@
 </head>
 
 <body>
+    <button class="hows-line">hows the line?</button>
+            {% include "parts/nav" %}
     <div class="fullscreen-bg">
     <video loop muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
         <source src="assets/street.mp4" type="video/mp4">
@@ -34,38 +36,36 @@
 
 
 	<div id="container">
-<button class="hows-line">hows the line?</button>
 
-        {% include "parts/social" %}
-		<header id="header">
+{% if entry.section == "Homepage" %}
 
 
+
+
+<div class="flashing-text"><h1>TASTY!</h1></div>
+
+
+
+{% endif %}
+
+        <!-- {% include "parts/social" %} -->
+<!-- 		<header id="header">
 			<h1>
 				<a href="{{ siteUrl }}">
-
-
 <img class="header-logo" src="assets/logo.png" alt="Mamnoon Street">
-
 {% for logoImage in craft.entries.section('siteLogo') %}
 {% for asset in logoImage.image %}
-    <!-- <img src="{{ asset.url }}" alt="" alt="logo" style="width:100%;"> -->
+    <img src="{{ asset.url }}" alt="" alt="logo" style="width:100%;">
 {% endfor %}
 {% endfor %}
-
-
-
-
 				</a></h1>
-
-
-        {% include "parts/nav" %}
 
 		<!-- 	<nav>
 				<ul>
 					<li><a href="{{ url('news') }}" {% if craft.request.firstSegment == 'news' %}class="active"{% endif %}>News</a></li>
 				</ul>
 			</nav> -->
-		</header>
+		<!-- </header> -->
 
 		<main id="content" role="main" style="display:none;">
 			{% block content %}
@@ -80,15 +80,16 @@
 
 
 {% if entry.section == "Homepage" %}
-<h1></h1>
-
-{% include "parts/carousel" %}
 
 
 
-{% include "parts/menu" %}
 
-<!-- // parts/contact was removed from here -->
+<!-- {% include "parts/carousel" %} -->
+
+
+
+<!-- {% include "parts/menu" %} -->
+
 
 
 {% include "parts/hours-location" %}
@@ -110,9 +111,9 @@
 
 
 
-		<footer id="footer">
+	<!-- 	<footer id="footer">
         {% include "parts/social" %}
-		</footer>
+		</footer> -->
 	</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
