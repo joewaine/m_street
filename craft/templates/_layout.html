@@ -23,32 +23,96 @@
 
 
     {% includeCssFile "assets/css/style.css" %}
+
+{% if entry.section == "about" %}
+<style type="text/css">
+.main-nav li.about a{
+    color: #000;
+}
+</style>
+
+
+{% endif %}
+
+
+
+
+<style>
+  .videojs-background-wrap {
+    overflow:hidden;
+    position:absolute;
+    height:100%;
+    width:100%;
+    top:0;
+    left:0;
+    z-index: -998;
+  }
+</style>
+
+  <link href="http://vjs.zencdn.net/6.2.8/video-js.css" rel="stylesheet">
+
+  <!-- If you'd like to support IE8 -->
+  <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
 </head>
 
 <body>
+
+{% if entry.section == "Homepage" %}
+
     <button class="hows-line">hows the line?</button>
+    {% endif %}
             {% include "parts/nav" %}
+
+
+       {% if entry.section == "Homepage" %}
     <div class="fullscreen-bg">
-    <video loop muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
-        <source src="assets/street.mp4" type="video/mp4">
-    </video>
+
+
+
+
+
 </div>
 
 
-	<div id="container">
+
+    {% endif %}
+
+
+
+
+
+
+
+	<div id="container" class="videojs-background-wrap z-index-0">
+
 
 {% if entry.section == "Homepage" %}
 
 
 
 
-<div class="flashing-text"><h1>TASTY!</h1></div>
+<div class="flashing-text"><h1>
+{% for text in craft.entries.section('globals') %}
+{{text.flashingText}}
+{% endfor %}
+</h1></div>
+ <video id="bg-video"
+             class="video-js vjs-default-skin"
+             style="position:absolute;top:0;left:0;overflow:hidden;z-index:-998;"
+             height="100%"
+             width="100%"
+             loop >
 
+      <p>
+        Your browser doesn't support video. Please <a href="http://browsehappy.com/">upgrade your browser</a> to see the example.
+      </p>
+  <source src="assets/street.mp4" type="video/mp4">
+    </video>
 
 
 {% endif %}
 
-        <!-- {% include "parts/social" %} -->
+
 <!-- 		<header id="header">
 			<h1>
 				<a href="{{ siteUrl }}">
@@ -96,13 +160,6 @@
 
 {% endif %}
 
-{% if entry.section == "about" %}
-<h1>this is the about page</h1>
-
-
-{{entry.body}}
-
-{% endif %}
 
 
 
@@ -115,6 +172,60 @@
         {% include "parts/social" %}
 		</footer> -->
 	</div>
+
+
+
+{% if entry.section == "about" %}
+
+
+
+
+<div class="about-panels">
+
+<div class="left-about-panels">
+
+
+{% include "parts/aboutUsVideoSection" %}
+
+</div>
+<div class="right-about-panels">
+
+
+{% include "parts/cateringSection" %}
+
+
+
+
+<div class="press-panel">
+    <div class="press-tab">press</div>
+        <div class="content-container press">
+
+
+
+
+
+{% include "parts/press" %}
+
+
+
+
+
+
+</div>
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+{% endif %}
+
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -133,26 +244,46 @@
 <script type="text/javascript">
 
 
+
 $('.owl-carousel').owlCarousel({
     rtl:true,
     loop:true,
-    margin:10,
+    margin:0,
     nav:true,
     responsive:{
         0:{
-            items:1
+            items:5
         },
         600:{
-            items:1
+            items:5
         },
         1000:{
-            items:1
+            items:5
         }
     }
 })
 
 
+
+$('.owl-carousel .item').on('click', function(){
+
+$('iframe').hide();
+
+
+
+
+$('iframe#' + $(this).attr('data')).show();
+});
+
+
+
+
+
+
+
 </script>
+
+
 
 
 <script type="text/javascript">
@@ -254,6 +385,21 @@ $('.close').click(function(){
 
 </script>
 
+
+
+
+
+
+{% if entry.section == "Homepage" %}
+
+  <script src="http://vjs.zencdn.net/6.2.8/video.js"></script>
+
+<script src="/assets/js/videojs-background.js"></script>
+
+<script>
+  videojs('bg-video').Background();
+</script>
+{% endif %}
 
 </body>
 </html>

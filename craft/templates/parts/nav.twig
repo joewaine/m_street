@@ -17,7 +17,11 @@
 <button class="close">close</button></div>
 
 <nav class="mamnoon-nav" id="nav" style="">
-  <ul>
+
+
+
+
+  <ul class="main-nav">
   <li>
       <a href="/#menu">menu / </a>
     </li>
@@ -26,11 +30,17 @@
       <a href="https://app.upserve.com/s/mamnoon-street-seattle" target="_blank">order</a>
     </li>
 
-    <li>
+    <li class="about">
       <a href="{{ siteUrl(about) }}about">about</a>
     </li>
 
     </ul>
+
+  {% include "parts/social" %}
+
+
+           {% if entry.section == "Homepage" %}
     <div class="logo-header" style="">mamnoon</div>
+    {% endif %}
 </nav>
 

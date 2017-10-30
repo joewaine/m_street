@@ -8,13 +8,31 @@
             <div class="span12">
 
 
+
+
+{% for footerInfo in craft.entries.section('globals') %}
+
+
 <p class="footerinfo">
-<span class="hours">Mon - Sat: 11am - 9pm, Sun: 11am - 8pm</span>
+<span class="hours">{{footerInfo.hoursLineOne}}</span>
 <br>
-<span class="hours">Happy Hour: 3 - 6 pm, Dinner: 6pm - Close</span>
+<span class="hours">{{footerInfo.hoursLineTwo}}</span>
 <br>
-<span class="address">2020 6th Ave Seattle, WA 98121</span>
+<span class="address">{{footerInfo.address}}</span>
 </p>
+
+
+
+
+
+
+{% endfor %}
+
+
+
+
+
+
 
 
 

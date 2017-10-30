@@ -1,0 +1,17 @@
+{% for block in entry.press %}
+
+    {% if block.type == "pressLinks" %}
+
+<div class="pressitem">
+    <a data="{{ loop.index }}" href="{{block.linkUrl}}">{{block.linkTitle}}</a>
+</div>
+
+
+    {% endif %}
+
+{% endfor %}
+
+
+
+
+

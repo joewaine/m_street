@@ -1,0 +1,77 @@
+{% for block in entry.videoSlideShow %}
+
+    {% if block.type == "slide" %}
+
+
+{% if loop.index == 1 %}
+  <iframe id="id{{ loop.index }}" style="" width="100%" height="400px" src="https://www.youtube.com/embed/{{block.slideUrl}}" frameborder="0" allowfullscreen></iframe>
+{% else %}
+  <iframe id="id{{ loop.index }}" style="display:none;" width="100%" height="400px" src="https://www.youtube.com/embed/{{block.slideUrl}}" frameborder="0" allowfullscreen></iframe>
+ {% endif %}
+
+    {% endif %}
+
+{% endfor %}
+
+
+
+
+
+
+<div class="owl-carousel owl-theme" style="">
+{% for block in entry.videoSlideShow %}
+
+
+
+    {% if block.type == "slide" %}
+
+<div class="item video-thumbnails" data="id{{ loop.index }}" style="background-image: url('http://img.youtube.com/vi/{{block.slideUrl}}/1.jpg');">
+<p>slide</p><p>slide</p><p>slide</p><p>slide</p><p>slide</p><p>slide</p>
+</div>
+    {% endif %}
+
+
+
+
+{% endfor %}
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

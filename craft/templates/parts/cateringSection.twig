@@ -1,0 +1,29 @@
+<div class="catering-panel">
+
+
+{% for catering in craft.entries.section('about') %}
+
+
+
+
+
+<div class="content-container">
+
+
+              <h1 class="catering-header">{{catering.cateringTitle}}</h1>
+              <div class="catering-body">{{catering.cateringBody}}
+              </div>
+              <span class="catering-phone-number">{{catering.cateringPhoneNumber}}</span>
+
+              </div>
+
+
+
+
+
+
+{% endfor %}
+
+
+
+</div>

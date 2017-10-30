@@ -1,0 +1,34 @@
+<div class="content-container">
+
+
+
+
+
+
+
+
+
+{% for aboutText in craft.entries.section('about') %}
+
+              <h1 class="about-header">{{aboutText.aboutHeader}}</h1>
+              <div class="about-body">
+                {{aboutText.aboutBody}}
+              </div>
+
+
+
+
+{% endfor %}
+
+
+
+
+<!-- carousel -->
+
+
+
+{% include "parts/videoSlides" %}
+
+<!-- carousel -->
+</div>
+
