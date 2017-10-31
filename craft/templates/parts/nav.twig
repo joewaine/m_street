@@ -22,6 +22,29 @@
 
 
   <ul class="main-nav">
+
+
+<li>
+{% set isUserOnMobile = false %}
+
+{% for item in browserValues %}
+    {% set isUserOnMobile = not isUserOnMobile ? item.agent in userAgent : isUserOnMobile %}
+{% endfor %}
+
+{% if isUserOnMobile %}
+<h1>
+    You're on mobile
+    </h1>
+{% else %}
+ <h1>
+    You're not on mobile
+    </h1>
+{% endif %}
+
+
+
+</li>
+
   <li>
       <a href="/#menu">menu / </a>
     </li>
