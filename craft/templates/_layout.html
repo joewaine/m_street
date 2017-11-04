@@ -87,12 +87,14 @@
 
 
 
-	<div id="container" class="videojs-background-wrap z-index-0">
+	<!-- <div id="container" class="videojs-background-wrap z-index-0"> -->
 
+
+<div id="container" style="background: transparent;height: 100vh;">
 
 {% if entry.section == "Homepage" %}
 
-
+    <div class="logo-header" style="">mamnoon</div>
 
 
 <div class="flashing-text"><h1>
@@ -100,12 +102,16 @@
 {{text.flashingText}}
 {% endfor %}
 </h1></div>
- <video id="bg-video"
-             class="video-js vjs-default-skin"
-             style="position:absolute;top:0;left:0;overflow:hidden;z-index:-998;"
-             height="100%"
-             width="100%"
-             loop >
+ <!-- <video id="bg-video" -->
+             <!-- class="video-js vjs-default-skin" -->
+             <!-- style="position:absolute;top:0;left:0;overflow:hidden;z-index:-998;" -->
+             <!-- height="100%" -->
+             <!-- width="100%" -->
+             <!-- loop > -->
+
+             <video id="bg-video" loop >
+               <!-- <video> -->
+
 
       <p>
         Your browser doesn't support video. Please <a href="http://browsehappy.com/">upgrade your browser</a> to see the example.
@@ -160,7 +166,7 @@
 
 
 
-{% include "parts/hours-location" %}
+
 
 {% endif %}
 
@@ -168,7 +174,7 @@
 
 
 
-
+{% include "parts/hours-location" %}
 
 
 
@@ -178,56 +184,46 @@
 	</div>
 
 
-
-{% if entry.section == "about" %}
-
+<div id="container" style="background: yellow;height: 100vh;">
 
 
-
-<div class="about-panels">
-
-<div class="left-about-panels">
-
-
-{% include "parts/aboutUsVideoSection" %}
-
-</div>
-<div class="right-about-panels">
-
-
-{% include "parts/cateringSection" %}
+  {% if entry.section == "Homepage" %}
 
 
 
 
-<div class="press-panel">
-    <div class="press-tab">press</div>
-        <div class="content-container press">
+  <div class="about-panels" style="">
+
+  <div class="left-about-panels">
+
+
+  {% include "parts/aboutUsVideoSection" %}
+
+  </div>
+  <div class="right-about-panels">
+
+
+  {% include "parts/cateringSection" %}
+
+  <div class="press-panel">
+      <div class="press-tab">press</div>
+          <div class="content-container press">
+
+  {% include "parts/press" %}
+
+  </div>
+  </div>
+  </div>
+  </div>
 
 
 
-
-
-{% include "parts/press" %}
-
-
-
-
-
-
-</div>
-</div>
-
+  {% endif %}
 
 
 </div>
 
 
-</div>
-
-
-
-{% endif %}
 
 
 
@@ -254,16 +250,12 @@ $('.owl-carousel').owlCarousel({
     loop:true,
     margin:0,
     nav:true,
+    dots: false,
+    mouseDrag: false,
+    touchDrag: false,
     responsive:{
-        0:{
-            items:5
-        },
-        600:{
-            items:5
-        },
-        1000:{
-            items:5
-        }
+768: {items: 5},
+0: {items: 2}
     }
 })
 
@@ -271,12 +263,15 @@ $('.owl-carousel').owlCarousel({
 
 $('.owl-carousel .item').on('click', function(){
 
-$('iframe').hide();
+$('videoWrapper iframe').hide();
 
 
 
-
+$('iframe#' + $(this).attr('data')).parent().show();
 $('iframe#' + $(this).attr('data')).show();
+
+
+
 });
 
 
@@ -304,71 +299,6 @@ $('.menu-nav li:not(:last-child)').click(function(){
 
 
 
-// form
-
-
-    window.csrfTokenName = "{{ craft.config.get('csrfTokenName') }}";
-    window.csrfTokenValue = "{{ craft.request.getCsrfToken }}";
-
-
-$(function() {
-
-    // Get the form.
-    var form = $('#ajax-contact');
-
-    // Get the messages div.
-    var formMessages = $('#form-messages');
-
-    // Set up an event listener for the contact form.
-    $(form).submit(function(e) {
-        // Stop the browser from submitting the form.
-        e.preventDefault();
-
-        // Serialize the form data.
-        var formData = $(form).serialize();
-
-        // formData[window.csrfTokenName] = window.csrfTokenValue;
-
-        // Submit the form using AJAX.
-        $.ajax({
-            type: 'POST',
-            url: $(form).attr('action'),
-            data: formData
-        })
-        .done(function(response) {
-            // Make sure that the formMessages div has the 'success' class.
-            $(formMessages).removeClass('error');
-            $(formMessages).addClass('success');
-
-            $(formMessages).delay(1000).fadeOut('slow');
-
-            // Set the message text.
-            $(formMessages).text(response);
-            // Clear the form.
-            $('#name').val('');
-            $('#email').val('');
-            $('#subject').val('');
-            $('#message').val('');
-        })
-        .fail(function(data) {
-            // Make sure that the formMessages div has the 'error' class.
-            $(formMessages).removeClass('success');
-            $(formMessages).addClass('error');
-
-            // Set the message text.
-            if (data.responseText !== '') {
-                $(formMessages).text(data.responseText);
-            } else {
-                $(formMessages).text('Oops! An error occured and your message could not be sent.');
-            }
-        });
-
-    });
-
-});
-
-
-// form
 
 
 $('.hows-line').click(function(){

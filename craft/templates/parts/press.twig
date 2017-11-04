@@ -1,4 +1,7 @@
-{% for block in entry.press %}
+
+{% for aboutText in craft.entries.section('about') %}
+
+{% for block in aboutText.press %}
 
     {% if block.type == "pressLinks" %}
 
@@ -10,8 +13,4 @@
     {% endif %}
 
 {% endfor %}
-
-
-
-
-
+{% endfor %}
