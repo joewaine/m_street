@@ -85,11 +85,6 @@
 
 
 
-
-
-	<!-- <div id="container" class="videojs-background-wrap z-index-0"> -->
-
-
 <div id="container" style="background: transparent;height: 100vh;">
 
 {% if entry.section == "Homepage" %}
@@ -102,16 +97,7 @@
 {{text.flashingText}}
 {% endfor %}
 </h1></div>
- <!-- <video id="bg-video" -->
-             <!-- class="video-js vjs-default-skin" -->
-             <!-- style="position:absolute;top:0;left:0;overflow:hidden;z-index:-998;" -->
-             <!-- height="100%" -->
-             <!-- width="100%" -->
-             <!-- loop > -->
-
-             <video id="bg-video" loop >
-               <!-- <video> -->
-
+             <video id="bg-video" loop>
 
       <p>
         Your browser doesn't support video. Please <a href="http://browsehappy.com/">upgrade your browser</a> to see the example.
@@ -123,52 +109,10 @@
 {% endif %}
 
 
-<!-- 		<header id="header">
-			<h1>
-				<a href="{{ siteUrl }}">
-<img class="header-logo" src="assets/logo.png" alt="Mamnoon Street">
-{% for logoImage in craft.entries.section('siteLogo') %}
-{% for asset in logoImage.image %}
-    <img src="{{ asset.url }}" alt="" alt="logo" style="width:100%;">
-{% endfor %}
-{% endfor %}
-				</a></h1>
-
-		<!-- 	<nav>
-				<ul>
-					<li><a href="{{ url('news') }}" {% if craft.request.firstSegment == 'news' %}class="active"{% endif %}>News</a></li>
-				</ul>
-			</nav> -->
-		<!-- </header> -->
-
-		<main id="content" role="main" style="display:none;">
-			{% block content %}
-				<p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
-				<p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
-			{% endblock %}
-		</main>
 
 
 
 
-
-
-{% if entry.section == "Homepage" %}
-
-
-
-
-<!-- {% include "parts/carousel" %} -->
-
-
-
-<!-- {% include "parts/menu" %} -->
-
-
-
-
-
-{% endif %}
 
 
 
@@ -176,15 +120,10 @@
 
 {% include "parts/hours-location" %}
 
-
-
-	<!-- 	<footer id="footer">
-        {% include "parts/social" %}
-		</footer> -->
 	</div>
 
 
-<div id="container" style="background: yellow;height: 100vh;">
+<div id="about" class="about-panel" style="">
 
 
   {% if entry.section == "Homepage" %}
@@ -207,11 +146,15 @@
 
   <div class="press-panel">
       <div class="press-tab">press</div>
-          <div class="content-container press">
+          <div class="content-container press clearfix">
 
   {% include "parts/press" %}
 
   </div>
+  </div>
+  <div class="mobile-footer-social">
+
+  {% include "parts/social" %}
   </div>
   </div>
   </div>
@@ -319,7 +262,101 @@ $('.close').click(function(){
 
 </script>
 
+<script>
 
+$(window).scroll(function() {
+    var scroll = $(window).scrollTop();
+    if (scroll >= $('#about').offset().top - 56) {
+        $(".about a").addClass("current");
+    } else {
+        $(".about a").removeClass("current");
+    }
+});
+
+$(".about a").click(function(e) {
+  e.preventDefault();
+    $('html, body').animate({
+        scrollTop: $("#about").offset().top - 56
+    }, 500);
+});
+
+
+
+$('.menu-bars').click(function(){
+
+$('.mobile-menu-links').slideToggle();
+
+});
+
+
+var pressStack = function(){
+
+  if ($(window).width() > 768){
+
+    if($('.pressitem').length > 8){
+
+  $('.content-container.press').css({
+    'padding-left' : '19.7%'
+  });
+
+    $('.pressitem').css({
+      'width': '50%',
+      'float': 'left'
+    });
+
+    }else{
+
+      $('.content-container.press').css({
+        'padding-left' : '37%'
+      });
+
+        $('.pressitem').css({
+          'width': '100%',
+          'float': 'left'
+        });
+
+
+
+    }
+
+
+
+
+  }else{
+
+    $('.content-container.press').css({
+      'padding-left' : '30px'
+    });
+
+      $('.pressitem').css({
+        'width': '100%',
+        'float': 'left'
+      });
+
+
+
+  }
+
+
+}
+
+
+$(document).ready(function(){
+  pressStack();
+});
+
+$(window).resize(function(){
+  pressStack();
+});
+
+
+
+
+
+
+
+
+</script>
 
 
 
@@ -334,6 +371,15 @@ $('.close').click(function(){
   videojs('bg-video').Background();
 </script>
 {% endif %}
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>
