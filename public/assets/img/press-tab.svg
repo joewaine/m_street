@@ -1,1 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 239.88 239.88"><defs><style>.cls-1{fill:#df5857;}.cls-2{font-size:45px;fill:#fff;font-family:HelveticaNeue-Bold, Helvetica Neue;font-weight:700;}.cls-3{letter-spacing:-0.02em;}.cls-4{letter-spacing:0em;}</style></defs><title>Asset 2</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><polygon class="cls-1" points="0 239.88 239.88 0 0 0 0 239.88"/><text class="cls-2" transform="translate(50.17 140.84) rotate(-45)">p<tspan class="cls-3" x="27.5" y="0">r</tspan><tspan class="cls-4" x="44.19" y="0">ess</tspan></text></g></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 239.9 239.9" style="enable-background:new 0 0 239.9 239.9;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#DF5857;}
+	.st1{fill:#FFFFFF;}
+	.st2{font-family:'HelveticaNeue-Bold';}
+	.st3{font-size:41.3322px;}
+</style>
+<title>Asset 2</title>
+<g id="Layer_1-2">
+	<polygon class="st0" points="0,239.9 239.9,0 0,0 	"/>
+</g>
+<text transform="matrix(0.7071 -0.7071 0.7071 0.7071 49.0923 132.9417)" class="st1 st2 st3">p</text>
+<text transform="matrix(0.7071 -0.7071 0.7071 0.7071 66.9529 115.0811)" class="st1 st2 st3">r</text>
+<text transform="matrix(0.7071 -0.7071 0.7071 0.7071 77.7926 104.2414)" class="st1 st2 st3">ess</text>
+</svg>
