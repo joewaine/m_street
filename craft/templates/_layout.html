@@ -86,19 +86,30 @@
 
 
 
-<div id="container" style="background: transparent;height: 100vh;">
+<div id="container" style="height: 100vh;display: table;">
 
 {% if entry.section == "Homepage" %}
 
     <div class="logo-header" style="">mamnoon</div>
 
 
+<div class="flashing-text-box" style="height: 100vh;display: table;text-align: center;width: 100%;">
 <div class="flashing-text"><h1>
 {% for text in craft.entries.section('globals') %}
 {{text.flashingText}}
 {% endfor %}
-</h1></div>
-             <video id="bg-video" loop>
+
+
+
+
+</h1>
+
+
+</div>
+
+</div>
+             <!-- <video id="bg-video" poster="/assets/img/poster.png" loop> -->
+<video id="bg-video" loop>
 
       <p>
         Your browser doesn't support video. Please <a href="http://browsehappy.com/">upgrade your browser</a> to see the example.
@@ -364,12 +375,15 @@ $(window).resize(function(){
 
 {% if entry.section == "Homepage" %}
 
-  <script src="http://vjs.zencdn.net/6.2.8/video.js"></script>
 
+{% if craft.request.isMobileBrowser %}
+<!--<h1>mobile</h1>-->
+  {% else %}
+<!--<h1>not mobile</h1>-->
+<script src="http://vjs.zencdn.net/6.2.8/video.js"></script>
 <script src="/assets/js/videojs-background.js"></script>
-
 <script>
-  videojs('bg-video').Background();
+videojs('bg-video').Background();
 </script>
 {% endif %}
 
@@ -378,6 +392,44 @@ $(window).resize(function(){
 
 
 
+{% endif %}
+
+
+
+<script type="text/javascript">
+
+$('.flashing-text-box').css('height', $(window).height() - 45 );
+
+$(window).resize(function(){
+
+$('.flashing-text-box').css('height', $(window).height() - 45 );
+
+
+});
+
+</script>
+
+<script type="text/javascript">
+// var phrases = ['TASTY!','SO FRESH!','FAST FOOD!','QUALITY!'];
+// var end = phrases.length - 1;
+// var counter = 0;
+// var mixUp = setInterval(function(){
+//   if(phrases[counter].split(' ').length === 2){
+//   $(".flashing-text h1").fadeOut(750, function() {
+//     $(this).text(phrases[counter]).delay(2000).css('text-align', 'left').fadeIn(1000);
+//   })
+// }else{
+//   $(".flashing-text h1").fadeOut(750, function() {
+//     $(this).text(phrases[counter]).delay(2000).css('text-align', 'center').fadeIn(1000);
+//   })
+// }
+// if(counter === end){
+//   counter = 0;
+// }else{
+//   counter = counter + 1;
+// }
+// }, 5000);
+</script>
 
 
 

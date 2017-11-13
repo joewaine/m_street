@@ -59,7 +59,10 @@ table {
 /*css reset*/
 /*css reset*/
 
-   body { font-family: sans-serif; background: #000; }
+   body { font-family: sans-serif;
+     background-color: #000;
+  /*background-image: url("/assets/img/poster.png") top center;*/
+   }
     body {
       padding: 0px !important;
       font: 400 14px 'Quicksand', sans-serif;
@@ -693,10 +696,19 @@ p.footerinfo{
 
 
 .flashing-text{
-      position: absolute;
+      /*position: absolute;
       text-align: center;
     width: 100%;
-    top: 260px;
+    top: 260px;*/
+
+
+    /* position: absolute; */
+    text-align: center;
+    width: 100%;
+    /* top: 260px; */
+    display: table-cell;
+    vertical-align: middle;
+
 }
 
 .flashing-text h1{
@@ -753,22 +765,17 @@ p.footerinfo{
 }
 
 
-/*.flashing-text*/
-
 .flashing-text h1{
-color: white;
-/*  -webkit-animation: flash linear 0.4s infinite;
-  animation: flash linear 0.4s infinite;*/
-
-  -webkit-animation: color_change 0.3s infinite alternate;
-  -moz-animation: color_change 0.3s infinite alternate;
-  -ms-animation: color_change 0.3s infinite alternate;
-  -o-animation: color_change 0.3s infinite alternate;
-  animation: color_change 0.3s infinite alternate;
-
-
-
+  color: white;
+  color: #DF5857;
+  text-shadow: 6px 6px #FFF;
+  color: #FFF;
+  text-shadow: 6px 6px #DF5857;
+  text-align: center;
+  line-height: 20vw;
 }
+
+
 
 
 @-webkit-keyframes color_change {
@@ -1056,10 +1063,10 @@ z-index: 100;
   }
 
 .flashing-text {
-    position: absolute;
+    /*position: absolute;
     text-align: center;
     width: 100%;
-    top: 210px;
+    top: 210px;*/
 }
 
 
@@ -1212,7 +1219,25 @@ display: none;
   display: none;
 }
 
+
+
+
+#container{
+/*background: green;*/
+}
+
+
 @media screen and (max-width: 768px){
+
+
+
+#container{
+        background: url(/assets/img/manSTgif2.gif) center center;
+            background-size: 100%;
+
+}
+
+
 
   .mamnoon-nav ul li a {
       color: white;
