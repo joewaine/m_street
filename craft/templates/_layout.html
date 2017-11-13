@@ -220,9 +220,11 @@ $('.owl-carousel').owlCarousel({
 
 $('.owl-carousel .item').on('click', function(){
 
-$('videoWrapper iframe').hide();
+$('.videoWrapper').hide();
 
+$('.videoWrapper iframe').hide();
 
+// console.log($(this).attr('data'));
 
 $('iframe#' + $(this).attr('data')).parent().show();
 $('iframe#' + $(this).attr('data')).show();
