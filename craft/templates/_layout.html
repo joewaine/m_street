@@ -281,13 +281,13 @@ $('.close').click(function(){
 $(window).scroll(function() {
     var scroll = $(window).scrollTop();
     if (scroll >= $('#about').offset().top - 56) {
-        $(".about a").addClass("current");
+        $("a.about").addClass("current");
     } else {
-        $(".about a").removeClass("current");
+        $("a.about").removeClass("current");
     }
 });
 
-$(".about a").click(function(e) {
+$("a.about").click(function(e) {
   e.preventDefault();
     $('html, body').animate({
         scrollTop: $("#about").offset().top - 56

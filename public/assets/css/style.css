@@ -815,7 +815,7 @@ body {
   position: relative;
 }
 
-.about a.current {
+ a.about.current {
   color: black;
 }
 
