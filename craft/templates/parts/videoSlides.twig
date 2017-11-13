@@ -27,13 +27,15 @@
 
     {% if block.type == "slide" %}
 
-{% for asset in block.slideImage %}
-<div class="item video-thumbnails" data="id{{ loop.index }}" style='background-image: url("{{ asset.url }}");'>
-{% endfor %}
 
-
-
+<div class="item video-thumbnails" data="id{{ loop.index }}" style='background-image: url("{% for asset in block.slideImage %}{{ asset.url }}{% endfor %}");'>
 </div>
+
+
+
+
+
+
     {% endif %}
 
 
