@@ -14,25 +14,20 @@
 <head>
 	<meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
 	<title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
 	<link rel="home" href="{{ siteUrl }}" />
   <link href="http://fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet" type="text/css">
 
-
 <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
 <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
-
-
-    {% includeCssFile "assets/css/style.css" %}
-
+{% includeCssFile "assets/css/style.css" %}
 {% if entry.section == "about" %}
 <style type="text/css">
 .main-nav li.about a{
     color: #000;
 }
 </style>
-
-
 {% endif %}
 
 
@@ -50,10 +45,10 @@
   }
 </style>
 
-  <link href="http://vjs.zencdn.net/6.2.8/video-js.css" rel="stylesheet">
+  <link href="http://vjs.zencdn.net/6.2.8/video-js.min.css" rel="stylesheet">
 
   <!-- If you'd like to support IE8 -->
-  <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+  <!-- <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script> -->
 </head>
 
 <body>
@@ -109,6 +104,12 @@
 
 </div>
              <!-- <video id="bg-video" poster="/assets/img/poster.png" loop> -->
+
+
+             {% if craft.request.isMobileBrowser %}
+             <!--<h1>mobile</h1>-->
+               {% else %}
+
 <video id="bg-video" loop>
 
       <p>
@@ -117,6 +118,7 @@
   <source src="assets/street-sm.mp4" type="video/mp4">
     </video>
 
+{% endif %}
 
 {% endif %}
 
@@ -190,8 +192,8 @@
 <script type="text/javascript" src="/assets/js/jquery.scrolldepth.min.js"></script>
 <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/assets/js/bootstrap-transition.js"></script>
-<script type="text/javascript" src="/assets/js/unslider.js"></script>
-<script type="text/javascript" src="/assets/js/jquery.sticky.js"></script>
+<!-- <script type="text/javascript" src="/assets/js/unslider.js"></script> -->
+<!-- <script type="text/javascript" src="/assets/js/jquery.sticky.js"></script> -->
 
 
 
