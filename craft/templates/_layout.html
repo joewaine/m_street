@@ -17,8 +17,8 @@
   <meta name="format-detection" content="telephone=no">
 	<title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
 	<link rel="home" href="{{ siteUrl }}" />
-<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-<link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
 {% includeCssFile "assets/css/style.css" %}
 {% if entry.section == "about" %}
 <style type="text/css">
@@ -82,11 +82,45 @@
 <div id="container" style="height: 100vh;display: table;">
 
 {% if entry.section == "Homepage" %}
+<div class="logo-header" style="">mamnoon</div>
+<div class="flashing-text-box" style="height: 100vh;display: table;text-align: center;width: 100%;position: relative;">
+{% for text in craft.entries.section('globals') %}
+{% if text.notificationHeader %}
+<div class="notification-bar">
+<div class="notification-bar-body">
+  <h4>
+  {{ text.notificationHeader }}
+</h4>
+<p>
+  {{ text.notificationText }}
+</p>
+</div>
+</div>
+  {% endif %}
+  {% endfor %}
 
-    <div class="logo-header" style="">mamnoon</div>
 
 
-<div class="flashing-text-box" style="height: 100vh;display: table;text-align: center;width: 100%;">
+  {% for text in craft.entries.section('globals') %}
+  {% if text.notificationHeader %}
+  <div class="notification-bar-mobile">
+  <div class="notification-bar-body-mobile">
+    <h4>
+    {{ text.notificationHeader }}
+  </h4>
+  <p>
+    {{ text.notificationText }}
+  </p>
+  </div>
+  </div>
+    {% endif %}
+    {% endfor %}
+
+
+
+
+
+
 <div class="flashing-text"><h1>
 {% for text in craft.entries.section('globals') %}
 {{text.flashingText}}
@@ -150,6 +184,9 @@
 
   {% include "parts/aboutUsVideoSection" %}
 
+
+
+
   </div>
   <div class="right-about-panels">
 
@@ -162,8 +199,22 @@
 
   {% include "parts/press" %}
 
+
+
+
+<div class="expand-contract">
+  plusminus
+</div>
+
   </div>
   </div>
+
+
+  {% include "parts/map" %}
+
+
+
+
   <div class="mobile-footer-social">
 
   {% include "parts/social" %}
@@ -321,14 +372,13 @@ var pressStack = function(){
     }else{
 
       $('.content-container.press').css({
-        'padding-left' : '37%'
+        'padding-left' : '19.7%'
       });
 
         $('.pressitem').css({
-          'width': '100%',
+          'width': '50%',
           'float': 'left'
         });
-
 
 
     }
@@ -366,7 +416,12 @@ $(window).resize(function(){
 
 
 
+$('.expand-contract').click(function(){
 
+  $(this).toggleClass('expanded');
+  $('.pressitem').toggleClass('expanded');
+
+});
 
 
 
