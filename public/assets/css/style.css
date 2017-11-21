@@ -1,4 +1,4 @@
-/*css reset*/
+om/*css reset*/
 
 /*css reset*/
 
@@ -508,7 +508,8 @@ h2 {
   text-align: center;
 }
 
-######### # menu # ######### @media (min-aspect-ratio: 16/9) {
+######### # menu # #########
+@media (min-aspect-ratio: 16/9) {
   .fullscreen-bg__video {
     height: 300%;
     top: -100%;
@@ -754,17 +755,18 @@ h2 {
 }
 
 #contact-footer {
-  position: absolute;
-  bottom: 0;
+  /*position: absolute;*/
+  /*bottom: 0;*/
   height: 87px;
   width: 708px;
   background: url(/assets/img/hours-footer-transparent.svg) top center;
   background-repeat: no-repeat;
   background-size: 100%;
   padding: 24px;
-  left: 50%;
-  margin-left: -354px;
+  /*left: 50%;*/
+  /*margin-left: -354px;*/
   z-index: 99;
+  margin: 0 auto;
 }
 
 p.footerinfo {
@@ -827,7 +829,7 @@ body {
 
 
 .notification-bar-mobile{
-  display: none;
+  /*display: none;*/
 
 }
 
@@ -857,7 +859,7 @@ body {
     .notification-bar-mobile{
       display: block;
       background: url(/assets/img/notification-bg.png);
-      position: absolute;
+      /*position: absolute;*/
       padding: 10px 0 20px 0;
       bottom: 70px;
       z-index: 0;
@@ -1084,6 +1086,58 @@ body {
   height: 100vh;
 }
 
+
+.bottom-area .notification-bar-mobile{
+  display: none;
+}
+
+
+
+
+.notification-bar-mobile.tablet,
+.notification-bar-mobile.phone{
+  display: none;
+}
+
+
+
+
+@media screen and (max-width: 1300px) {
+
+
+
+.notification-bar-mobile.tablet{
+    display: block;
+  }
+
+
+
+.notification-bar{
+    display: none;
+}
+
+.bottom-area .notification-bar-mobile{
+  background: url(/assets/img/notification-bg.png);
+  display: block;
+  padding: 30px 65px;
+  z-index: -1;
+  width: 100%;
+  text-align: left;
+  color: #DF5857;
+  line-height: 26px;
+  width: 90%;
+}
+
+
+.bottom-area .notification-bar-mobile.phone{
+display: none;
+}
+
+
+}
+
+
+
 @media screen and (max-width: 1024px) {
   .left-about-panels, .right-about-panels {
     width: 100%;
@@ -1185,6 +1239,16 @@ body {
   .pressitem {
     width: 100%;
   }
+
+
+.bottom-area .notification-bar-mobile.tablet{
+  display: none;
+}
+
+.bottom-area .notification-bar-mobile.phone{
+  display: block;
+}
+
 }
 
 video {
@@ -1463,6 +1527,22 @@ video {
   text-align: left;
 }
 
+
+.notification-bar-mobile .notification-bar-body{
+      width: 100%;
+      padding: 0 15px;
+}
+
+
+
+.notification-bar-mobile .notification-bar-body {
+    width: auto;
+    padding: 0 15px;
+}
+
+
+
+
 .notification-bar-body p{
     text-align: left;
 }
@@ -1563,4 +1643,42 @@ video {
   }
 
 
+
+
+  .notification-bar-mobile .notification-bar-body {
+      width: auto;
+      padding: 30px 15px;
+  }
+
+
+.bottom-area .notification-bar-mobile{
+    background: url(/assets/img/notification-bg.png);
+    display: block;
+    padding: 0;
+    z-index: -1;
+    text-align: left;
+    color: #DF5857;
+    line-height: 26px;
+    width: 100%;
+}
+
+
+}
+
+.bottom-area{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+
+.open{
+  cursor: pointer;
+  color: transparent;
+  width: 100%;
+  height: 500px;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  z-index: 100;
 }

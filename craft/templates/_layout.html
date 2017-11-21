@@ -52,9 +52,13 @@
 <body>
 
 {% if entry.section == "Homepage" %}
-
-    <button class="hows-line">hows the line?</button>
+  {% for text in craft.entries.section('globals') %}
+    {% if text.lineCamera | length %}
+      <button class="hows-line">hows the line?</button>
     {% endif %}
+  {% endfor %}
+{% endif %}
+
             {% include "parts/nav" %}
 
 
@@ -101,7 +105,7 @@
 
 
 
-  {% for text in craft.entries.section('globals') %}
+  <!-- {% for text in craft.entries.section('globals') %}
   {% if text.notificationHeader %}
   <div class="notification-bar-mobile">
   <div class="notification-bar-body-mobile">
@@ -114,7 +118,7 @@
   </div>
   </div>
     {% endif %}
-    {% endfor %}
+    {% endfor %} -->
 
 
 
@@ -468,26 +472,61 @@ $('.flashing-text-box').css('height', $(window).height() - 45 );
 
 <script type="text/javascript">
 // var phrases = ['TASTY!','SO FRESH!','FAST FOOD!','QUALITY!'];
-// var end = phrases.length - 1;
-// var counter = 0;
-// var mixUp = setInterval(function(){
-//   if(phrases[counter].split(' ').length === 2){
-//   $(".flashing-text h1").fadeOut(750, function() {
-//     $(this).text(phrases[counter]).delay(2000).css('text-align', 'left').fadeIn(1000);
-//   })
-// }else{
-//   $(".flashing-text h1").fadeOut(750, function() {
-//     $(this).text(phrases[counter]).delay(2000).css('text-align', 'center').fadeIn(1000);
-//   })
-// }
-// if(counter === end){
-//   counter = 0;
-// }else{
-//   counter = counter + 1;
-// }
-// }, 5000);
+
+var phrases = [];
+
+$('.phrase-list .phrase').each(function(){
+
+
+phrases.push([$(this).text().trim().split(' ')]);
+
+});
+console.log(phrases);
+
+var end = phrases.length - 1;
+var counter = 0;
+var mixUp = setInterval(function(){
+
+
+
+
+  if(phrases[counter].length === 2){
+  $(".flashing-text h1").fadeOut(750, function() {
+
+    console.log(phrases[counter][0][0]);
+    $(this).text(phrases[counter][0][0]).delay(2000).css('text-align', 'left').fadeIn(1000);
+        // $(this).text(phrases[counter][1]).delay(2000).css('text-align', 'left').fadeIn(1000);
+  })
+}else{
+  $(".flashing-text h1").fadeOut(750, function() {
+    $(this).text(phrases[counter][0]).delay(2000).css('text-align', 'center').fadeIn(1000);
+  })
+}
+if(counter === end){
+  counter = 0;
+}else{
+  counter = counter + 1;
+}
+
+console.log(phrases);
+console.log(phrases[counter][0]);
+// console.log(phrases[counter][1][0]);
+
+
+}, 5000);
 </script>
 
+
+<!-- map external -->
+<script type="text/javascript">
+$('.open').click(function() {
+
+
+window.open($(this).parent().attr('data'),'_newtab');
+
+
+ });
+</script>
 
 
 

@@ -5,17 +5,19 @@
 
 {% if loop.index == 1 %}
 <div class="videoWrapper">
-  <iframe id="id{{ loop.index }}" style="" width="100%" height="370px" src="https://www.youtube.com/embed/{{block.slideUrl}}" frameborder="0" allowfullscreen></iframe></div>
+  <!-- <iframe id="id{{ loop.index }}" style="" width="100%" height="370px" src="https://www.youtube.com/embed/{{block.slideUrl}}" frameborder="0" allowfullscreen></iframe></div> -->
+  <iframe id="id{{ loop.index }}" src="https://player.vimeo.com/video/{{block.slideUrl}}?title=0&byline=0&portrait=0" width="100%" height="370px" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
 {% else %}
 <div class="videoWrapper" style="display:none;">
-  <iframe id="id{{ loop.index }}" style="display:none;" width="100%" height="370px" src="https://www.youtube.com/embed/{{block.slideUrl}}" frameborder="0" allowfullscreen></iframe></div>
+  <!-- <iframe id="id{{ loop.index }}" style="display:none;" width="100%" height="370px" src="https://www.youtube.com/embed/{{block.slideUrl}}" frameborder="0" allowfullscreen></iframe></div> -->
+  <iframe id="id{{ loop.index }}" src="https://player.vimeo.com/video/{{block.slideUrl}}?title=0&byline=0&portrait=0" style="display:none;" width="100%" height="370px" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</div>
+
  {% endif %}
 
     {% endif %}
 
 {% endfor %}
-
-
 
 
 
