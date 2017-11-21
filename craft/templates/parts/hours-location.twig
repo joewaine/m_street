@@ -1,3 +1,24 @@
+<div class="bottom-area">
+
+
+{% for text in craft.entries.section('globals') %}
+{% if text.notificationHeader %}
+<div class="notification-bar-mobile phone">
+<div class="notification-bar-body">
+  <h4>
+  {{ text.notificationHeader }}
+</h4>
+<p>
+  {{ text.notificationText }}
+</p>
+</div>
+</div>
+  {% endif %}
+  {% endfor %}
+
+
+
+
 <div class="section-region" id="contact-footer">
   <div class="container">
     <div class="">
@@ -42,4 +63,22 @@
 
 </div>
 </div>
+</div>
+
+{% for text in craft.entries.section('globals') %}
+{% if text.notificationHeader %}
+<div class="notification-bar-mobile tablet">
+<div class="notification-bar-body">
+  <h4>
+  {{ text.notificationHeader }}
+</h4>
+<p>
+  {{ text.notificationText }}
+</p>
+</div>
+</div>
+  {% endif %}
+  {% endfor %}
+
+
 </div>

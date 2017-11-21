@@ -4,8 +4,9 @@
 
 <div class="video-background">
     <div class="video-foreground">
-      <iframe src="https://www.youtube.com/embed/W0LHTWG-UmQ?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=W0LHTWG-UmQ" frameborder="0" allowfullscreen></iframe>
-      <!--<iframe type="text/html" frameborder="0" width="480" height="394" src="//video.nest.com/embedded/live/iDyjcoXh5k?autoplay=1" allowfullscreen></iframe>-->
+      {% for text in craft.entries.section('globals') %}
+        {{ text.lineCameraEmbedCode|raw }}
+      {% endfor %}
     </div>
   </div>
 
@@ -47,3 +48,48 @@
     {% endif %}
 </nav>
 {% include "parts/mobile-nav" %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- matrix -->
+<!-- matrix -->
+<!-- matrix -->
+
+
+<div style="display:none;">
+
+
+{% for entry in craft.entries.section('globals') %}
+{% for block in entry.landingPageTextMarquee %}
+<div class="phrase-list">
+  {% if block.type == 'singleLinePhrase' %}
+  <div class="phrase">{{ block.phrase|raw }}</div>
+  {% elseif block.type == 'twoLinePhrase' %}
+  <div class="phrase">{{ block.phraseLineOne|raw }} {{ block.phraseLineTwo|raw }}</div>
+  {% endif %}
+
+</div>
+{% endfor %}
+{% endfor %}
+
+</div>
+
+
+
+<!-- matrix -->
+<!-- matrix -->
+<!-- matrix -->
