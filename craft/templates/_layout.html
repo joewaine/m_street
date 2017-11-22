@@ -122,16 +122,26 @@
 
 
 
-
-
-
 <div class="flashing-text"><h1>
-{% for text in craft.entries.section('globals') %}
-{{text.flashingText}}
-{% endfor %}
+
+  {% for entry in craft.entries.section('globals') %}
+  {% for block in entry.landingPageTextMarquee %}
+
+  {% if loop.first %}
+    
+    {% if block.type == 'singleLinePhrase' %}
+  {{ block.phrase|raw }}
+    {% elseif block.type == 'twoLinePhrase' %}
+      <span style="display:block;"><span class="line1">{{ block.phraseLineOne|raw }}</span></span>
+      <span style="display:block;"><span class="line2">{{ block.phraseLineTwo|raw }}</span></span>
+      {% endif %}
 
 
 
+      {% endif %}
+
+  {% endfor %}
+  {% endfor %}
 
 </h1>
 
@@ -459,61 +469,92 @@ videojs('bg-video').Background();
 
 <script type="text/javascript">
 
+
+
+var marqueefunction = function(){
+if ($(window).width() > 1300){
+if ($('.notification-bar').length === 0) {
+var newHeight = $('.notification-bar').height() - 28;
+$('.flashing-text h1').css('margin-top', newHeight);
+
+}else{
+var newHeightFix = $('.notification-bar').height() + 60 - 28;
+  $('.flashing-text h1').css('margin-top', newHeightFix);
+}
 $('.flashing-text-box').css('height', $(window).height() - 45 );
+$(window).resize(function(){
+$('.flashing-text-box').css('height', $(window).height() - 45 );
+});
+}else if($(window).width() < 1300){
+  if ($('.notification-bar').length === 0) {
+  var newHeight = -$('.notification-bar').height() - 20;
+  $('.flashing-text h1').css('margin-top', newHeight);
+
+  }else{
+  var newHeightFix = -$('.notification-bar').height() - 60 - 20;
+    $('.flashing-text h1').css('margin-top', newHeightFix);
+  }
+  $('.flashing-text-box').css('height', $(window).height() - 45 );
+  $(window).resize(function(){
+  $('.flashing-text-box').css('height', $(window).height() - 45 );
+  });
+}else{}
+}
+
+marqueefunction();
 
 $(window).resize(function(){
-
-$('.flashing-text-box').css('height', $(window).height() - 45 );
-
+  marqueefunction();
 
 });
+
+
 
 </script>
 
 <script type="text/javascript">
-// var phrases = ['TASTY!','SO FRESH!','FAST FOOD!','QUALITY!'];
-
 var phrases = [];
 
 $('.phrase-list .phrase').each(function(){
-
-
-phrases.push([$(this).text().trim().split(' ')]);
-
+  phrases.push($(this).text().trim().split(' '));
 });
 console.log(phrases);
-
 var end = phrases.length - 1;
 var counter = 0;
 var mixUp = setInterval(function(){
 
-
-
-
   if(phrases[counter].length === 2){
-  $(".flashing-text h1").fadeOut(750, function() {
 
-    console.log(phrases[counter][0][0]);
-    $(this).text(phrases[counter][0][0]).delay(2000).css('text-align', 'left').fadeIn(1000);
-        // $(this).text(phrases[counter][1]).delay(2000).css('text-align', 'left').fadeIn(1000);
-  })
-}else{
-  $(".flashing-text h1").fadeOut(750, function() {
-    $(this).text(phrases[counter][0]).delay(2000).css('text-align', 'center').fadeIn(1000);
-  })
+    $(".flashing-text h1").fadeOut(750, function() {
+      $(this).html(phrases[counter][0]).delay(2000).css({'text-align': 'center', 'margin-left' : '0'}).fadeIn(1000);
+    });
+
+  }else{
+
+    $(".flashing-text h1").fadeOut(750, function() {
+      $(this).html('<span style="display:block;"><span class="line1">' + phrases[counter][0] + '</span></span><span style="display:block;"><span class="line2">' + phrases[counter][1] + '</span></span>').delay(2000).css({'text-align': 'center'}).fadeIn(1000);
+    });
+
+    // if($('.flashing-text h1 span span.line1').width() > $('.flashing-text h1 span span.line2').width()){
+    //   var innerMarginSize = $('.flashing-text h1 span span.line1').width();
+    // }else{
+    //   var innerMarginSize = $('.flashing-text h1 span span.line2').width();
+    // }
+    //   var wordingMargin = innerMarginSize / $('.flashing-text h1 span').width()
+    //   var wordingMarginPercent = wordingMargin * 100;
+    //
+    // console.log(wordingMarginPercent);
 }
+
+
 if(counter === end){
   counter = 0;
 }else{
   counter = counter + 1;
 }
-
-console.log(phrases);
-console.log(phrases[counter][0]);
-// console.log(phrases[counter][1][0]);
-
-
 }, 5000);
+
+
 </script>
 
 

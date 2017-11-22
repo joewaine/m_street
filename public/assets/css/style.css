@@ -806,12 +806,19 @@ p.footerinfo {
   vertical-align: middle;
 }
 
-.flashing-text h1 {
-  color: #DF5857;
-  font-size: 20vw;
+.flashing-text h1{
   font-style: italic;
-  text-shadow: 6px 6px #FFF;
+  font-size: 19vw;
 }
+
+
+.flashing-text h1 span{
+    font-style: italic;
+  font-size: 15vw;
+  line-height: 15vw;
+}
+
+
 
 body {
   position: relative;
@@ -886,12 +893,7 @@ body {
       text-align: left;
 }
 
-
-
 }
-
-
-
 
 .flashing-text h1 {
   color: white;
@@ -900,8 +902,19 @@ body {
   color: #FFF;
   text-shadow: 6px 6px #DF5857;
   text-align: center;
-  line-height: 20vw;
+  margin-top: -28px;
 }
+
+.flashing-text h1.one-line{
+  font-size: 19vw;
+  line-height: 19vw;
+}
+
+.flashing-text h1 span{
+  font-size: 15vw;
+  line-height: 15vw;
+}
+
 
 @-webkit-keyframes color_change {
   from {
@@ -993,8 +1006,12 @@ body {
 }
 
 .content-container {
-  padding: 62px 85px 52px 85px;
+  padding: 40px 80px 40px 80px;
   text-align: left;
+}
+
+.left-about-panels .content-container{
+      padding: 70px 80px 70px 80px;
 }
 
 .content-container h2 {
@@ -1047,7 +1064,7 @@ body {
 }
 
 .catering-header {
-  font-size: 42px;
+  font-size: 32px;
   font-style: italic;
   color: #DF5857;
 }
@@ -1061,7 +1078,7 @@ body {
 }
 
 .catering-phone-number {
-  font-size: 42px;
+  font-size: 32px;
   font-style: italic;
   color: #DF5857;
 }
@@ -1079,6 +1096,12 @@ body {
 .content-container.press {
   padding-left: 37%;
   padding-top: 60px;
+}
+
+
+
+.content-container.press{
+
 }
 
 .about-panel {
@@ -1230,8 +1253,15 @@ display: none;
     margin-left: -20px;
   }
   .content-container {
-    padding: 30px 15px 60px;
+    padding: 30px 15px;
   }
+
+
+.left-about-panels .content-container{
+      padding: 30px 15px;
+}
+
+
   .content-container.press {
     padding-left: 15px;
     padding-top: 150px;
@@ -1437,7 +1467,8 @@ video {
 
 .map-panel{
   background: #f7edbd;
-  height: 400px;
+  /*height: 400px;*/
+  height: 335px;
   overflow: hidden;
 }
 
@@ -1447,7 +1478,7 @@ video {
   color: white;
   float: left;
   /*padding: 20px 0;*/
-  height: 400px;
+  height: 335px;
   width: 30%;
   text-align: center;
 }
