@@ -103,34 +103,18 @@
   {% endif %}
   {% endfor %}
 
-
-
-  <!-- {% for text in craft.entries.section('globals') %}
-  {% if text.notificationHeader %}
-  <div class="notification-bar-mobile">
-  <div class="notification-bar-body-mobile">
-    <h4>
-    {{ text.notificationHeader }}
-  </h4>
-  <p>
-    {{ text.notificationText }}
-  </p>
-  </div>
-  </div>
-    {% endif %}
-    {% endfor %} -->
+<div class="flashing-text">
 
 
 
-<div class="flashing-text"><h1>
-
+<h1>
   {% for entry in craft.entries.section('globals') %}
   {% for block in entry.landingPageTextMarquee %}
 
   {% if loop.first %}
-    
+
     {% if block.type == 'singleLinePhrase' %}
-  {{ block.phrase|raw }}
+      <span style="display:block;"><span class="line1">{{ block.phrase|raw }}</span></span>
     {% elseif block.type == 'twoLinePhrase' %}
       <span style="display:block;"><span class="line1">{{ block.phraseLineOne|raw }}</span></span>
       <span style="display:block;"><span class="line2">{{ block.phraseLineTwo|raw }}</span></span>
@@ -144,7 +128,6 @@
   {% endfor %}
 
 </h1>
-
 
 </div>
 
@@ -257,6 +240,7 @@
 <script type="text/javascript" src="/assets/js/bootstrap-transition.js"></script>
 <!-- <script type="text/javascript" src="/assets/js/unslider.js"></script> -->
 <!-- <script type="text/javascript" src="/assets/js/jquery.sticky.js"></script> -->
+<script type="text/javascript" src="/assets/js/jquery.textfill.min.js"></script>
 
 
 
@@ -457,48 +441,47 @@ $('.expand-contract').click(function(){
 videojs('bg-video').Background();
 </script>
 {% endif %}
-
-
-
-
-
-
 {% endif %}
 
 
 
 <script type="text/javascript">
 
-
-
 var marqueefunction = function(){
 if ($(window).width() > 1300){
-if ($('.notification-bar').length === 0) {
-var newHeight = $('.notification-bar').height() - 28;
-$('.flashing-text h1').css('margin-top', newHeight);
-
-}else{
-var newHeightFix = $('.notification-bar').height() + 60 - 28;
-  $('.flashing-text h1').css('margin-top', newHeightFix);
-}
-$('.flashing-text-box').css('height', $(window).height() - 45 );
-$(window).resize(function(){
-$('.flashing-text-box').css('height', $(window).height() - 45 );
-});
-}else if($(window).width() < 1300){
   if ($('.notification-bar').length === 0) {
-  var newHeight = -$('.notification-bar').height() - 20;
-  $('.flashing-text h1').css('margin-top', newHeight);
-
+          $('.flashing-text h1').css('margin-top', '25px');
   }else{
-  var newHeightFix = -$('.notification-bar').height() - 60 - 20;
+  var newHeightFix = $('.notification-bar').height() + 60 - 3;
     $('.flashing-text h1').css('margin-top', newHeightFix);
   }
-  $('.flashing-text-box').css('height', $(window).height() - 45 );
+    $('.flashing-text-box').css('height', $(window).height() - 67 );
+    $(window).resize(function(){
+    $('.flashing-text-box').css('height', $(window).height() - 67 );
+    });
+}else if($(window).width() < 1300 && $(window).width() > 768){
+  if ($('.notification-bar').length === 0) {
+      $('.flashing-text h1').css('margin-top', '7px');
+  }else{
+  var newHeightFix = -$('.notification-bar').height() - 60 - 14;
+    $('.flashing-text h1').css('margin-top', newHeightFix);
+  }
+  $('.flashing-text-box').css('height', $(window).height() - 57 );
   $(window).resize(function(){
-  $('.flashing-text-box').css('height', $(window).height() - 45 );
+  $('.flashing-text-box').css('height', $(window).height() - 57 );
   });
-}else{}
+}else{
+  if ($('.notification-bar').length === 0) {
+  }else{
+  var newHeightFix = -$('.notification-bar').height() - 60;
+    $('.flashing-text h1').css('margin-top', newHeightFix);
+  }
+
+  $('.flashing-text-box').css('height', $(window).height() - 57 );
+  $(window).resize(function(){
+  $('.flashing-text-box').css('height', $(window).height() - 57 );
+  });
+}
 }
 
 marqueefunction();
@@ -518,7 +501,7 @@ var phrases = [];
 $('.phrase-list .phrase').each(function(){
   phrases.push($(this).text().trim().split(' '));
 });
-console.log(phrases);
+// console.log(phrases);
 var end = phrases.length - 1;
 var counter = 0;
 var mixUp = setInterval(function(){
@@ -526,24 +509,13 @@ var mixUp = setInterval(function(){
   if(phrases[counter].length === 2){
 
     $(".flashing-text h1").fadeOut(750, function() {
-      $(this).html(phrases[counter][0]).delay(2000).css({'text-align': 'center', 'margin-left' : '0'}).fadeIn(1000);
+      $(this).html(phrases[counter][0]).delay(2000).css({'text-align': 'center'}).fadeIn(1000);
     });
 
   }else{
-
     $(".flashing-text h1").fadeOut(750, function() {
       $(this).html('<span style="display:block;"><span class="line1">' + phrases[counter][0] + '</span></span><span style="display:block;"><span class="line2">' + phrases[counter][1] + '</span></span>').delay(2000).css({'text-align': 'center'}).fadeIn(1000);
     });
-
-    // if($('.flashing-text h1 span span.line1').width() > $('.flashing-text h1 span span.line2').width()){
-    //   var innerMarginSize = $('.flashing-text h1 span span.line1').width();
-    // }else{
-    //   var innerMarginSize = $('.flashing-text h1 span span.line2').width();
-    // }
-    //   var wordingMargin = innerMarginSize / $('.flashing-text h1 span').width()
-    //   var wordingMarginPercent = wordingMargin * 100;
-    //
-    // console.log(wordingMarginPercent);
 }
 
 
@@ -553,21 +525,18 @@ if(counter === end){
   counter = counter + 1;
 }
 }, 5000);
-
-
 </script>
 
 
 <!-- map external -->
 <script type="text/javascript">
-$('.open').click(function() {
 
+  $('.open').click(function() {
+    window.open($(this).parent().attr('data'),'_newtab');
+   });
 
-window.open($(this).parent().attr('data'),'_newtab');
-
-
- });
 </script>
+
 
 
 

@@ -794,21 +794,15 @@ p.footerinfo {
 }
 
 .flashing-text {
-  /*position: absolute;
-      text-align: center;
-    width: 100%;
-    top: 260px;*/
-  /* position: absolute; */
   text-align: center;
   width: 100%;
-  /* top: 260px; */
   display: table-cell;
   vertical-align: middle;
 }
 
 .flashing-text h1{
   font-style: italic;
-  font-size: 19vw;
+  font-size: 18vw;
 }
 
 
@@ -816,6 +810,13 @@ p.footerinfo {
     font-style: italic;
   font-size: 15vw;
   line-height: 15vw;
+}
+
+
+.flashing-text h1{
+  margin-top: 117px;
+  font-size: 19vw;
+  margin: 0 auto;
 }
 
 
@@ -1250,7 +1251,7 @@ display: none;
     outline: none;
   }
   .flashing-text h1 {
-    margin-left: -20px;
+    /*margin-left: -20px;*/
   }
   .content-container {
     padding: 30px 15px;
@@ -1486,7 +1487,7 @@ video {
 .map-text-body{
   color: #000;
   font-size: 15px;
-  line-height: 28px;
+  line-height: 26px;
   font-weight: bold;
   text-align: left;
   margin: 95px 23px 30px 23px;
@@ -1581,26 +1582,55 @@ video {
 
 
 
+@media screen and (max-width: 1024px) {
+  .map-text{
+      height: auto;
+      width: 100%;
+  }
+
+    .map-module{
+        width: 100%;
+        float: left;
+        position: relative;
+        height: 0;
+        overflow: hidden;
+        height: 400px !important;
+    }
+
+    .map-panel {
+      height: auto;
+    }
+
+
+    .map-text-body{
+      display: none;
+    }
+
+    .map-text-body-mobile{
+      clear: both;
+      display: block;
+      background: #565555;
+    }
+
+    .map-text-body-mobile-text{
+      color: #fff;
+      font-size: 15px;
+      line-height: 28px;
+      font-weight: bold;
+      text-align: left;
+      margin: 25px 23px 0px 23px;
+      padding: 21px 0 30px 0;
+
+    }
+
+}
+
+
+
 @media screen and (max-width: 768px) {
 
 
-.map-text{
-    height: auto;
-    width: 100%;
-}
 
-  .map-module{
-      width: 100%;
-      float: left;
-      position: relative;
-      height: 0;
-      overflow: hidden;
-      height: 400px !important;
-  }
-
-  .map-panel {
-    height: auto;
-  }
 
 
   .pressitem{
@@ -1643,26 +1673,7 @@ video {
     background-position: 0px 18px;
   }
 
-.map-text-body{
-  display: none;
-}
 
-.map-text-body-mobile{
-  clear: both;
-  display: block;
-  background: #565555;
-}
-
-.map-text-body-mobile-text{
-  color: #fff;
-  font-size: 15px;
-  line-height: 28px;
-  font-weight: bold;
-  text-align: left;
-  margin: 25px 23px 0px 23px;
-  padding: 21px 0 30px 0;
-
-}
 
 .map-text-header{
   background: #fff;
