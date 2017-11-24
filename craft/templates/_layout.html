@@ -83,11 +83,12 @@
 
 
 
-<div id="container" style="height: 100vh;display: table;">
+
+  <div id="container" class="main-box">
 
 {% if entry.section == "Homepage" %}
 <div class="logo-header" style="">mamnoon</div>
-<div class="flashing-text-box" style="height: 100vh;display: table;text-align: center;width: 100%;position: relative;">
+<div class="flashing-text-box">
 {% for text in craft.entries.section('globals') %}
 {% if text.notificationHeader %}
 <div class="notification-bar">
@@ -164,7 +165,7 @@
 {% include "parts/hours-location" %}
 
 	</div>
-
+{% include "parts/bottom-area-mobile" %}
 
 <div id="about" class="about-panel" style="">
 
@@ -448,6 +449,7 @@ videojs('bg-video').Background();
 <script type="text/javascript">
 
 var marqueefunction = function(){
+    if($(window).width() > 768){
 if ($(window).width() > 1300){
   if ($('.notification-bar').length === 0) {
           $('.flashing-text h1').css('margin-top', '25px');
@@ -482,14 +484,21 @@ if ($(window).width() > 1300){
   $('.flashing-text-box').css('height', $(window).height() - 57 );
   });
 }
+
+
+}else{
+
+    $('.flashing-text-box').css('height', '500px;');
+    $('.flashing-text h1').css('margin-top', '20px');
+
+}
 }
 
-marqueefunction();
+    marqueefunction();
+  $(window).resize(function(){
+        marqueefunction();
+  });
 
-$(window).resize(function(){
-  marqueefunction();
-
-});
 
 
 
