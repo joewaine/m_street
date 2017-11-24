@@ -508,6 +508,15 @@ h2 {
   text-align: center;
 }
 
+.flashing-text-box{
+  height: 100vh;
+  display: table;
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+
+
 ######### # menu # #########
 @media (min-aspect-ratio: 16/9) {
   .fullscreen-bg__video {
@@ -776,7 +785,7 @@ p.footerinfo {
   line-height: 26px;
 }
 
-.address {
+.address, .phone a {
   line-height: 50px;
   color: #000000;
   font-style: italic;
@@ -846,6 +855,7 @@ body {
   p.footerinfo {
     font-size: 14px;
     line-height: 20px;
+    margin-bottom: 10px;
   }
   .logo-header {
     background: url(/assets/img/logo.svg) top center;
@@ -855,11 +865,12 @@ body {
     width: 180px;
   }
   #contact-footer {
-    width: 100%;
+    width: 90%;
     background: rgba(255, 255, 255, 0.9);
     margin: 0 auto;
     left: 0;
-    padding: 14px;
+    padding: 5%;
+    height: auto;
   }
 
 
@@ -1178,6 +1189,19 @@ display: none;
   display: none;
 }
 
+
+
+.main-box{
+    height: 100vh;
+    display: table;
+  }
+
+
+
+.phone-mob{
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .mamnoon-nav {
     text-align: left;
@@ -1228,10 +1252,8 @@ display: none;
     z-index: 100;
   }
   .flashing-text {
-    /*position: absolute;
-    text-align: center;
-    width: 100%;
-    top: 210px;*/
+    display: block;
+    margin-top: 190px;
   }
   .line-modal .close {
     position: absolute;
@@ -1278,6 +1300,32 @@ display: none;
 
 .bottom-area .notification-bar-mobile.phone{
   display: block;
+}
+
+
+.main-box{
+  height: 500px;
+}
+
+
+.flashing-text-box{
+  height: 500px;
+}
+
+
+.phone-mob{
+  display: block;
+}
+
+.phone.desk{
+  display: none;
+}
+
+.address, .phone a {
+    line-height: 26px;
+    color: #000000;
+    font-style: italic;
+    font-size: 17px;
 }
 
 }
@@ -1428,6 +1476,13 @@ video {
   .owl-next {
     /*left: -35px;*/
   }
+
+
+
+
+
+
+
 }
 
 .clearfix:after {
@@ -1626,6 +1681,22 @@ video {
 }
 
 
+.bottom-area{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+
+
+
+.bottom-area.mobile{
+display: none;
+}
+
+
+
+
 
 @media screen and (max-width: 768px) {
 
@@ -1705,13 +1776,19 @@ video {
 }
 
 
+.bottom-area{
+    display: none;
 }
 
-.bottom-area{
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+.bottom-area.mobile{
+    display: block;
+    position: inherit;
 }
+
+
+
+}
+
 
 
 .open{
