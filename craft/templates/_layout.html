@@ -472,6 +472,7 @@ if ($(window).width() > 1300){
   $(window).resize(function(){
   $('.flashing-text-box').css('height', $(window).height() - 57 );
   });
+
 }else{
   if ($('.notification-bar').length === 0) {
   }else{
@@ -488,7 +489,7 @@ if ($(window).width() > 1300){
 
 }else{
 
-    $('.flashing-text-box').css('height', '500px;');
+    $('.flashing-text-box').css('height', 500);
     $('.flashing-text h1').css('margin-top', '20px');
 
 }
@@ -500,6 +501,10 @@ if ($(window).width() > 1300){
   });
 
 
+
+  $(window).resize(function(){
+  $('.flashing-text-box').css('height', 500);
+  });
 
 
 </script>
