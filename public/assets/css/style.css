@@ -1522,9 +1522,9 @@ video {
 
 
 .map-panel{
-  background: #f7edbd;
+  background: #fff;
   /*height: 400px;*/
-  height: 335px;
+  min-height: 400px;
   overflow: hidden;
 }
 
@@ -1534,7 +1534,7 @@ video {
   color: white;
   float: left;
   /*padding: 20px 0;*/
-  height: 335px;
+  /*height: 335px;*/
   width: 30%;
   text-align: center;
 }
@@ -1553,7 +1553,7 @@ video {
     float: left;
     position: relative;
     height: 0;
-    overflow: hidden;
+    /*overflow: hidden;*/
     height: 400px !important;
 }
 
@@ -1635,7 +1635,9 @@ video {
 }
 
 
-
+.map-text-body-mobile-text{
+  display: none;
+}
 
 @media screen and (max-width: 1024px) {
   .map-text{
@@ -1677,6 +1679,11 @@ video {
       padding: 21px 0 30px 0;
 
     }
+
+
+.map-text-body-mobile-text{
+  display: block;
+}
 
 }
 
