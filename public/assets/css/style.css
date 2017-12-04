@@ -609,8 +609,8 @@ h2 {
   background-color: transparent;
   background-repeat: no-repeat;
   border: 0;
-  width: 98px;
-  height: 98px;
+  width: 88px;
+  height: 88px;
   position: absolute;
   top: 104px;
   right: 78px;
@@ -727,7 +727,7 @@ h2 {
 .mamnoon-nav {
   background-color: #DF5857;
   text-align: center;
-  height: 56px;
+    height: 54px;
   position: fixed;
   top: 0;
   width: 100%;
@@ -736,7 +736,7 @@ h2 {
 
 .mamnoon-nav ul li a {
   color: white;
-  font-size: 22px;
+  font-size: 20px;
   text-decoration: none;
 }
 
@@ -749,8 +749,8 @@ h2 {
 }
 
 .hows-line {
-  width: 124px;
-  height: 124px;
+  width: 104px;
+  height: 104px;
   background: green;
   background: url("/assets/img/check-the-line.svg") top center;
   border: 0;
@@ -764,16 +764,12 @@ h2 {
 }
 
 #contact-footer {
-  /*position: absolute;*/
-  /*bottom: 0;*/
-  height: 87px;
-  width: 708px;
+  height: 82px;
+  width: 660px;
   background: url(/assets/img/hours-footer-transparent.svg) top center;
   background-repeat: no-repeat;
   background-size: 100%;
-  padding: 24px;
-  /*left: 50%;*/
-  /*margin-left: -354px;*/
+  padding: 15px 18px;
   z-index: 99;
   margin: 0 auto;
 }
@@ -781,25 +777,25 @@ h2 {
 p.footerinfo {
   text-align: left;
   color: #DF5857;
-  font-size: 19px;
-  line-height: 26px;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .address, .phone a {
   line-height: 50px;
   color: #000000;
   font-style: italic;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .logo-header {
   background: url(/assets/img/logo.svg) top center no-repeat;
   background-size: 100%;
   color: transparent;
-  height: 336px;
-  width: 336px;
+  height: 276px;
+  width: 276px;
   position: absolute;
-  top: 56px;
+  top: 54px;
 }
 
 .flashing-text {
@@ -824,7 +820,7 @@ p.footerinfo {
 
 .flashing-text h1{
   margin-top: 117px;
-  font-size: 19vw;
+  font-size: 15vw;
   margin: 0 auto;
 }
 
@@ -1064,33 +1060,33 @@ body {
 .about-header {
   color: #fff;
   margin-top: 12px;
-  font-size: 29px;
+  font-size: 26px;
 }
 
 .about-body {
   color: #DF5857;
-  font-size: 15px;
-  line-height: 30px;
+  font-size: 13px;
+  line-height: 26px;
   margin-top: 10px;
   margin-bottom: 90px;
 }
 
 .catering-header {
-  font-size: 32px;
+  font-size: 26px;
   font-style: italic;
   color: #DF5857;
 }
 
 .catering-body {
   color: #000;
-  font-size: 15px;
   margin-top: 20px;
   margin-bottom: 20px;
-  line-height: 30px;
+  font-size: 13px;
+  line-height: 26px;
 }
 
 .catering-phone-number {
-  font-size: 32px;
+  font-size: 26px;
   font-style: italic;
   color: #DF5857;
 }
@@ -1099,8 +1095,8 @@ body {
 
 .pressitem a {
   color: #DF5857;
-  font-size: 19px;
-  line-height: 50px;
+  font-size: 16px;
+  line-height: 38px;
   font-style: italic;
   text-decoration: none;
 }
@@ -1511,7 +1507,7 @@ video {
 
 .map-text-header{
   background-color: #DF5857;
-  font-size: 29px;
+  font-size: 26px;
   color: white;
   float: left;
   padding: 20px 0;
@@ -1523,9 +1519,9 @@ video {
 
 .map-panel{
   background: #fff;
-  /*height: 400px;*/
-  min-height: 400px;
   overflow: hidden;
+  height: 40vh;
+
 }
 
 .map-text{
@@ -1533,15 +1529,13 @@ video {
   font-size: 29px;
   color: white;
   float: left;
-  /*padding: 20px 0;*/
-  /*height: 335px;*/
-  width: 30%;
+  width: 35%;
   text-align: center;
 }
 
 .map-text-body{
   color: #000;
-  font-size: 15px;
+  font-size: 13px;
   line-height: 26px;
   font-weight: bold;
   text-align: left;
@@ -1549,12 +1543,12 @@ video {
 }
 
 .map-module{
-    width: 70%;
-    float: left;
-    position: relative;
-    height: 0;
-    /*overflow: hidden;*/
-    height: 400px !important;
+  width: 65%;
+  float: left;
+  position: relative;
+  height: 0;
+  /* overflow: hidden; */
+  height: 40vh !important;
 }
 
 
@@ -1579,15 +1573,15 @@ video {
 .notification-bar h4,
 .notification-bar-mobile h4{
   color: #fff;
-  font-size: 23px;
-  line-height: 33px;
+  font-size: 20px;
+  line-height: 34px;
 }
 
 .notification-bar{
   background: url(/assets/img/notification-bg.png);
   position: absolute;
   padding: 30px 0 30px 0;
-  top: 56px;
+  top: 54px;
   z-index: -1;
   width: 100%;
   text-align: left;
@@ -1599,21 +1593,25 @@ video {
 .notification-bar{
   background: url(/assets/img/notification-bg.png);
   position: absolute;
-  padding: 30px 0 30px 0;
+  padding: 20px 0 20px 0;
   z-index: -1;
   width: 100%;
   text-align: left;
   color: #DF5857;
-  line-height: 26px;
+  line-height: 26px;x
   width: 100%;
 }
 
 .notification-bar-body{
-  width: 700px;
+  width: 640px;
   margin: 0 auto;
   text-align: left;
 }
 
+
+.notification-bar-body p{
+  font-size: 13px;
+}
 
 .notification-bar-mobile .notification-bar-body{
       width: 100%;
@@ -1655,7 +1653,7 @@ video {
     }
 
     .map-panel {
-      height: auto;
+    height: auto !important;
     }
 
 
@@ -1671,8 +1669,10 @@ video {
 
     .map-text-body-mobile-text{
       color: #fff;
-      font-size: 15px;
-      line-height: 28px;
+      /*font-size: 15px;*/
+      /*line-height: 28px;*/
+      font-size: 12px;
+      line-height: 26px;
       font-weight: bold;
       text-align: left;
       margin: 25px 23px 0px 23px;
