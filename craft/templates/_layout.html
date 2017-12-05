@@ -566,6 +566,14 @@ if(counter === end){
 {% if isUserOnMobile %}
 You're on mobile
 
+
+
+
+
+
+{% else %}
+You're not on mobile
+
 {% for entry in craft.entries.section('globals') %}
 <ul class="gifs">
 {% for block in entry.mobileGifs %}
@@ -584,10 +592,6 @@ $('.main-box').css('background-image','url('+ randomChildText +')');
 </script>
 
 
-
-
-{% else %}
-You're not on mobile
 
 {% endif %}
 
