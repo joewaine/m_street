@@ -1419,7 +1419,7 @@ video {
 
 @media screen and (max-width: 768px) {
   #container {
-    background-position: center center;
+    background: url(/assets/img/manSTgif2.gif) center center;
     background-size: cover;
   }
   .mamnoon-nav ul li a {
