@@ -1248,8 +1248,8 @@ display: none;
     z-index: 100;
   }
   .flashing-text {
-    display: block;
-    margin-top: 190px;
+    /*display: block;*/
+    /*margin-top: 190px;*/
   }
   .line-modal .close {
     position: absolute;
@@ -1268,9 +1268,19 @@ display: none;
     color: transparent;
     outline: none;
   }
-  .flashing-text h1 {
-    /*margin-left: -20px;*/
+
+  .flashing-text h1.one-line {
+margin-top: 50px;
   }
+
+  .flashing-text h1.two-lines {
+margin-top: 20px;
+  }
+
+
+
+
+
   .content-container {
     padding: 30px 15px;
   }
