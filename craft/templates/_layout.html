@@ -125,12 +125,10 @@
   {% if loop.first %}
 
     {% if block.type == 'singleLinePhrase' %}
-    oneline
-    <h1>
+    <h1 class="one-line">
       <span style="display:block;"><span class="line1">{{ block.phrase|raw }}</span></span>
     </h1>
     {% elseif block.type == 'twoLinePhrase' %}
-    two lines
         <h1 class="two-lines">
       <span style="display:block;"><span class="line1">{{ block.phraseLineOne|raw }}</span></span>
       <span style="display:block;"><span class="line2">{{ block.phraseLineTwo|raw }}</span></span>
