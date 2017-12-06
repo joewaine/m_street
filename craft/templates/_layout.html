@@ -49,6 +49,16 @@
   <!-- <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script> -->
 </head>
 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-36474445-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
 <body>
 
 {% if entry.section == "Homepage" %}
@@ -575,7 +585,7 @@ if(counter === end){
 <!-- You're not on mobile -->
 
 {% for entry in craft.entries.section('globals') %}
-<!-- <ul class="gifs">
+<ul class="gifs">
 {% for block in entry.mobileGifs %}
 {% if block.type == 'mobileGif' %}
 {% for asset in block.mobileGifFile %}
@@ -586,10 +596,26 @@ if(counter === end){
 </ul>
 {% endfor %}
 <script>
-var randomChild = Math.floor( (Math.random() * $('ul.gifs li').length) + 1 );
-var randomChildText = $('ul.gifs li:nth-child('+ randomChild +')').text();
-$('.main-box').css('background-image','url('+ randomChildText +')');
-</script> -->
+
+
+function gifRandom(){
+  if($(window).width() < 768){
+  var randomChild = Math.floor( (Math.random() * $('ul.gifs li').length) + 1 );
+  var randomChildText = $('ul.gifs li:nth-child('+ randomChild +')').text();
+  $('.main-box').css('background-image','url('+ randomChildText +')');
+}else{
+    $('.main-box').css('background-image','');
+}
+}
+  gifRandom();
+$(window).resize(function(){
+  gifRandom();
+});
+
+
+
+
+</script>
 
 
 
