@@ -585,7 +585,7 @@ if(counter === end){
 <!-- You're not on mobile -->
 
 {% for entry in craft.entries.section('globals') %}
-<ul class="gifs">
+<ul class="gifs" style="display:none;">
 {% for block in entry.mobileGifs %}
 {% if block.type == 'mobileGif' %}
 {% for asset in block.mobileGifFile %}
