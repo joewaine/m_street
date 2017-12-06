@@ -114,10 +114,7 @@
   {% endif %}
   {% endfor %}
 
-<div class="flashing-text">
-
-
-
+<div class="flashing-text" style="">
 
   {% for entry in craft.entries.section('globals') %}
   {% for block in entry.landingPageTextMarquee %}
@@ -125,14 +122,20 @@
   {% if loop.first %}
 
     {% if block.type == 'singleLinePhrase' %}
-    <h1 class="one-line">
+    <!-- <h1 class="one-line"> -->
+
+
+<div style="margin-top:54px;">
       <span style="display:block;"><span class="line1">{{ block.phrase|raw }}</span></span>
-    </h1>
+    </div>
+    <!-- </h1> -->
     {% elseif block.type == 'twoLinePhrase' %}
-        <h1 class="two-lines">
+        <!-- <h1 class="two-lines"> -->
+        <div style="margin-top:54px;">
       <span style="display:block;"><span class="line1">{{ block.phraseLineOne|raw }}</span></span>
       <span style="display:block;"><span class="line2">{{ block.phraseLineTwo|raw }}</span></span>
-      </h1>
+</div>
+      <!-- </h1> -->
       {% endif %}
 
 
@@ -512,8 +515,6 @@ if ($(window).width() > 1300){
 }else{
 
     $('.flashing-text-box').css('height', 500);
-    $('.flashing-text h1.one-line').css('margin-top', '20px');
-        $('.flashing-text h1.two-lines').css('margin-top', '0px');
 
 }
 }
@@ -546,12 +547,12 @@ var mixUp = setInterval(function(){
   if(phrases[counter].length === 2){
 
     $(".flashing-text").fadeOut(750, function() {
-      $(this).html('<h1 class="one-line">' + phrases[counter][0] + '</h1>').delay(2000).css({'text-align': 'center'}).fadeIn(1000);
+      $(this).html('<div style="margin-top:54px;">' + phrases[counter][0] + '</div>').delay(2000).css({'text-align': 'center'}).fadeIn(1000);
     });
 
   }else{
     $(".flashing-text").fadeOut(750, function() {
-      $(this).html('<h1 class="two-lines"><span style="display:block;"><span class="line1">' + phrases[counter][0] + '</span></span><span style="display:block;"><span class="line2">' + phrases[counter][1] + '</span></span></h1>').delay(2000).css({'text-align': 'center'}).fadeIn(1000);
+      $(this).html('<div style="margin-top:54px;"><span style="display:block;"><span class="line1">' + phrases[counter][0] + '</span></span><span style="display:block;"><span class="line2">' + phrases[counter][1] + '</span></span></div>').delay(2000).css({'text-align': 'center'}).fadeIn(1000);
     });
 }
 
