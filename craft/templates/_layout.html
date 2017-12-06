@@ -125,13 +125,14 @@
     <!-- <h1 class="one-line"> -->
 
 
-<div style="margin-top:54px;">
+<div style="">
       <span style="display:block;"><span class="line1">{{ block.phrase|raw }}</span></span>
+
     </div>
     <!-- </h1> -->
     {% elseif block.type == 'twoLinePhrase' %}
         <!-- <h1 class="two-lines"> -->
-        <div style="margin-top:54px;">
+        <div style="">
       <span style="display:block;"><span class="line1">{{ block.phraseLineOne|raw }}</span></span>
       <span style="display:block;"><span class="line2">{{ block.phraseLineTwo|raw }}</span></span>
 </div>
@@ -472,70 +473,66 @@ videojs('bg-video').Background();
 
 
 <script type="text/javascript">
-
-var marqueefunction = function(){
-    if($(window).width() > 768){
-if ($(window).width() > 1300){
-  if ($('.notification-bar').length === 0) {
-          $('.flashing-text h1').css('margin-top', '25px');
-  }else{
-  var newHeightFix = $('.notification-bar').height() + 60 - 3;
-    $('.flashing-text h1').css('margin-top', newHeightFix);
-  }
-    $('.flashing-text-box').css('height', $(window).height() - 67 );
-    $(window).resize(function(){
-    $('.flashing-text-box').css('height', $(window).height() - 67 );
-    });
-}else if($(window).width() < 1300 && $(window).width() > 768){
-  if ($('.notification-bar').length === 0) {
-      $('.flashing-text h1').css('margin-top', '7px');
-  }else{
-  var newHeightFix = -$('.notification-bar').height() - 60 - 14;
-    $('.flashing-text h1').css('margin-top', newHeightFix);
-  }
-  $('.flashing-text-box').css('height', $(window).height() - 57 );
-  $(window).resize(function(){
-  $('.flashing-text-box').css('height', $(window).height() - 57 );
-  });
-
-}else{
-  if ($('.notification-bar').length === 0) {
-  }else{
-  var newHeightFix = -$('.notification-bar').height() - 60;
-    $('.flashing-text h1').css('margin-top', newHeightFix);
-  }
-
-  $('.flashing-text-box').css('height', $(window).height() - 57 );
-  $(window).resize(function(){
-  $('.flashing-text-box').css('height', $(window).height() - 57 );
-  });
-}
-
-
-}else{
-
-    $('.flashing-text-box').css('height', 500);
-
-}
-}
-
-    marqueefunction();
-  $(window).resize(function(){
-        marqueefunction();
-  });
-
+// var marqueefunction = function(){
+//     if($(window).width() > 768){
+// if ($(window).width() > 1300){
+//   if ($('.notification-bar').length === 0) {
+//           $('.flashing-text div').css('margin-top', '25px');
+//   }else{
+//   var newHeightFix = $('.notification-bar').height() + 60 - 3;
+//     $('.flashing-text div').css('margin-top', newHeightFix);
+//   }
+//     // $('.flashing-text-box').css('height', $(window).height() - 67 );
+//     $(window).resize(function(){
+//     // $('.flashing-text-box').css('height', $(window).height() - 67 );
+//     });
+// }else if($(window).width() < 1300 && $(window).width() > 768){
+//   if ($('.notification-bar').length === 0) {
+//       $('.flashing-text div').css('margin-top', '7px');
+//   }else{
+//   var newHeightFix = -$('.notification-bar').height() - 60 - 14;
+//     $('.flashing-text div').css('margin-top', newHeightFix);
+//   }
+//   // $('.flashing-text-box').css('height', $(window).height() - 57 );
+//   $(window).resize(function(){
+//   // $('.flashing-text-box').css('height', $(window).height() - 57 );
+//   });
+//
+// }else{
+//   if ($('.notification-bar').length === 0) {
+//   }else{
+//   var newHeightFix = -$('.notification-bar').height() - 60;
+//     // $('.flashing-text div').css('margin-top', newHeightFix);
+//   }
+//
+//   // $('.flashing-text-box').css('height', $(window).height() - 57 );
+//   $(window).resize(function(){
+//   // $('.flashing-text-box').css('height', $(window).height() - 57 );
+//   });
+// }
+//
+//     $('.flashing-text-box').css('height', $(this).parent().height());
+// }else{
+//
+//     $('.flashing-text-box').css('height', 454);
+//
+// }
+// }
+//
+//     marqueefunction();
+//   $(window).resize(function(){
+//         marqueefunction();
+//   });
 
 
-  $(window).resize(function(){
-  $('.flashing-text-box').css('height', 500);
-  });
-
-
+  //
+  // $(window).resize(function(){
+  // $('.flashing-text-box').css('height', 500);
+  // });
 </script>
 
 <script type="text/javascript">
 var phrases = [];
-
 $('.phrase-list .phrase').each(function(){
   phrases.push($(this).text().trim().split(' '));
 });
@@ -543,26 +540,104 @@ $('.phrase-list .phrase').each(function(){
 var end = phrases.length - 1;
 var counter = 0;
 var mixUp = setInterval(function(){
-
   if(phrases[counter].length === 2){
-
     $(".flashing-text").fadeOut(750, function() {
-      $(this).html('<div style="margin-top:54px;">' + phrases[counter][0] + '</div>').delay(2000).css({'text-align': 'center'}).fadeIn(1000);
+      $(this).html('<div class="one-line" style="">' + phrases[counter][0] + '</div>').delay(2000).css({'text-align': 'center'}).fadeIn(1000);
     });
-
   }else{
     $(".flashing-text").fadeOut(750, function() {
-      $(this).html('<div style="margin-top:54px;"><span style="display:block;"><span class="line1">' + phrases[counter][0] + '</span></span><span style="display:block;"><span class="line2">' + phrases[counter][1] + '</span></span></div>').delay(2000).css({'text-align': 'center'}).fadeIn(1000);
+      $(this).html('<div class="two-line" style=""><span style="display:block;"><span class="line1">' + phrases[counter][0] + '</span></span><span style="display:block;"><span class="line2">' + phrases[counter][1] + '</span></span></div>').delay(2000).css({'text-align': 'center'}).fadeIn(1000);
     });
 }
-
-
 if(counter === end){
   counter = 0;
 }else{
   counter = counter + 1;
 }
 }, 5000);
+</script>
+
+
+
+<script type="text/javascript">
+
+var marqueeAlign = function(){
+if($(window).width() < 1300 && $(window).width() > 768){
+  if ($('.notification-bar').length === 0) {
+      let hoursRegHeight = 0;
+      let notificationBarHeight = 0;
+      let correctiveHeight = $('.flashing-text-box').height();
+      $('.flashing-text-box').css('height', correctiveHeight);
+      $('.flashing-text-box').css('padding-top',0);
+  }else{
+      let hoursRegHeight = $('.section-region').height() + 30;
+      let notificationBarHeight = $('.notification-bar-mobile').height() + 60;
+      let correctiveHeight = $('.flashing-text-box').height() - hoursRegHeight - notificationBarHeight - 54;
+      $('.flashing-text-box').css('height', correctiveHeight);
+      $('.flashing-text-box').css('padding-top','27px');
+  }
+
+}else if($(window).width() > 1300){
+
+// let correctiveHeight2 = $('.flashing-text-box').height() - hoursRegHeight2 + notificationBarHeight2 - 54;
+
+if ($('.notification-bar').length === 0) {
+    let hoursRegHeight = 0;
+    let notificationBarHeight = 0;
+    let correctiveHeight = $('.flashing-text-box').height();
+    $('.flashing-text-box').css('height', correctiveHeight);
+    $('.flashing-text-box').css('padding-top',0);
+}else{
+    let hoursRegHeight = $('.section-region').height() + 30;
+    let notificationBarHeight = $('.notification-bar-mobile').height() + 60;
+    let correctiveHeight = $('.flashing-text-box').height() - hoursRegHeight + notificationBarHeight - 54;
+    $('.flashing-text-box').css('height', correctiveHeight);
+    $('.flashing-text-box').css('padding-top','54px');
+}
+
+
+
+
+}else{}
+}
+
+
+marqueeAlign();
+
+$(window).resize(function(){
+
+
+
+
+if($(window).width() < 1300 && $(window).width() > 768){
+
+var windowHeight = $(window).height();
+var sectionRegionHeight = $('.section-region').height();
+var notificationBarMobile = $('.notification-bar-mobile').height()
+var padding = 90;
+let newHeight = windowHeight - sectionRegionHeight - notificationBarMobile - padding;
+$('.flashing-text-box').css('height', newHeight);
+  $('.flashing-text-box').css('padding-top', 33);
+}else if($(window).width() > 1300){
+  var windowHeight = $(window).height();
+  var sectionRegionHeight = $('.section-region').height();
+  var notificationBarMobile = $('.notification-bar-mobile').height()
+  var padding = 30;
+  let newHeight = windowHeight - sectionRegionHeight - padding;
+  $('.flashing-text-box').css('height', newHeight);
+  $('.flashing-text-box').css('padding-top', notificationBarMobile + 33);
+}else{
+
+  $('.flashing-text-box').css('height', 500);
+
+
+}
+
+
+
+});
+
+
 </script>
 
 
