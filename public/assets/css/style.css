@@ -903,6 +903,7 @@ body {
 
 }
 
+.flashing-text,
 .flashing-text h1 {
   color: white;
   color: #DF5857;
@@ -910,14 +911,17 @@ body {
   color: #FFF;
   text-shadow: 6px 6px #DF5857;
   text-align: center;
-  margin-top: -28px;
+  margin-top: 27px;
+  font-style: italic;
 }
 
+
+.flashing-text,
 .flashing-text h1.one-line{
   font-size: 19vw;
   line-height: 19vw;
 }
-
+.flashing-text span,
 .flashing-text h1 span{
   font-size: 15vw;
   line-height: 15vw;
@@ -1269,13 +1273,13 @@ display: none;
     outline: none;
   }
 
-  .flashing-text h1.one-line {
-margin-top: 50px;
+  /*.flashing-text h1.one-line {
+margin-top: 50%;
   }
 
   .flashing-text h1.two-lines {
-margin-top: 20px;
-  }
+margin-top: 40%;
+  }*/
 
 
 
