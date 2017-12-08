@@ -915,14 +915,13 @@ body {
   font-style: italic;
 }
 
-
 .flashing-text,
-.flashing-text h1.one-line{
-  font-size: 15vw;
-  line-height: 15vw;
+.flashing-text .one-line{
+  font-size: 13vw;
+  line-height: 13vw;
 }
-.flashing-text span,
-.flashing-text h1 span{
+
+.flashing-text .two-line span{
   font-size: 15vw;
   line-height: 15vw;
 }
