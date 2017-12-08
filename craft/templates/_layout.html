@@ -73,7 +73,7 @@
 
 
 
-
+            {% include "parts/coming-soon" %}
 
 
        {% if entry.section == "Homepage" %}
@@ -701,6 +701,22 @@ $(window).resize(function(){
 
 
 {% endif %}
+
+
+<script type="text/javascript">
+  $('.order-coming-soon .close').click(function(){
+
+    $(this).parent().fadeOut();
+
+  });
+
+$('.open-coming-soon').click(function(e){
+  e.preventDefault();
+  $('.order-coming-soon').fadeIn();
+});
+
+
+</script>
 
 
 </body>
