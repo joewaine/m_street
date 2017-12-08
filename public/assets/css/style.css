@@ -1872,6 +1872,14 @@ display: none;
   cursor: pointer;
 }
 
+
+
+
+.catering-body p a{
+  color: #DF5857;
+  text-decoration: none;  
+}
+
 /*768*/
 @media screen and (max-width: 768px) {
 .order-coming-soon{
