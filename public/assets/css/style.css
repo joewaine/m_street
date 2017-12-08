@@ -352,7 +352,7 @@ h2 {
 }
 
 p {
-  text-align: center;
+  /*text-align: center;*/
 }
 
 .padding-wrap {
@@ -918,8 +918,8 @@ body {
 
 .flashing-text,
 .flashing-text h1.one-line{
-  font-size: 19vw;
-  line-height: 19vw;
+  font-size: 15vw;
+  line-height: 15vw;
 }
 .flashing-text span,
 .flashing-text h1 span{
@@ -1822,4 +1822,67 @@ display: none;
   position: absolute;
   top: 0;
   z-index: 100;
+}
+
+
+.order-coming-soon{
+  background-color: rgba(86,85,85,.9);
+  position: fixed;
+  z-index: 1000000;
+  margin: 0 auto;
+  left: 50%;
+  width: 500px;
+  margin-left: -280px;
+  padding: 30px;
+  top: 54px;
+}
+
+.order-coming-soon h4{
+  color: white;
+  font-size: 58px;
+  font-style: italic;
+}
+
+.order-coming-soon p{
+  color: #DD5857;
+  font-size: 22px;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+.order-coming-soon .close {
+      top: 0;
+      right: 0;
+      background-image: url(../img/close-up-modal-red.svg);
+      background-color: transparent;
+      background-repeat: no-repeat;
+      border: 0;
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      margin-left: -16px;
+      color: transparent;
+      outline: none;
+      cursor: pointer;
+}
+
+.open-coming-soon{
+  cursor: pointer;
+}
+
+/*768*/
+@media screen and (max-width: 768px) {
+.order-coming-soon{
+  background-color: rgba(86,85,85,.9);
+  position: fixed;
+  z-index: 1000000;
+  margin: 0 auto;
+  left: 50%;
+  width: 90%;
+  margin-left: -50%;
+  padding: 5%;
+  top: 0;
+}
 }
