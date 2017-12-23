@@ -1535,7 +1535,7 @@ video {
 .map-panel{
   background: #fff;
   overflow: hidden;
-  height: 40vh;
+  /*height: 40vh;*/
 
 }
 
@@ -1878,6 +1878,16 @@ display: none;
 .catering-body p a{
   color: #DF5857;
   text-decoration: none;
+}
+
+.videoWrapper{
+  margin: 0 auto -3px;
+  max-width: 560px;
+}
+
+.left-about-panels .owl-carousel{
+  max-width: 560px;
+  margin: 0 auto;
 }
 
 /*768*/
