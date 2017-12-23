@@ -998,10 +998,12 @@ body {
 
 .right-about-panels {
   width: 50%;
-  background: #565555;
+  /*background: #565555;*/
+background: #fff;
   height: 100vh;
   float: left;
   /*padding-top: 56px;*/
+
 }
 
 .catering-panel {
