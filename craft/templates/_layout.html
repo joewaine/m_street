@@ -709,15 +709,25 @@ $(window).resize(function(){
 
 
 <script type="text/javascript">
-  $('.order-coming-soon .close').click(function(){
 
-    $(this).parent().fadeOut();
 
-  });
+  // $('.order-coming-soon .close').click(function(){
+  //
+  //   $(this).parent().fadeOut();
+  //
+  // });
 
-$('.open-coming-soon').click(function(e){
-  e.preventDefault();
-  $('.order-coming-soon').fadeIn();
+// $('.open-coming-soon').click(function(e){
+//   // e.preventDefault();
+//   $('.order-coming-soon').fadeIn();
+//   window.open(https://www.trycaviar.com/seattle/mamnoon-street-6597/preview/mer-zwDSg1eHEXFMAh67BibzqQ);
+//   return false;
+// });
+
+
+$('a.open-coming-soon').attr({
+  'href': 'https://www.trycaviar.com/seattle/mamnoon-street-6597/preview/mer-zwDSg1eHEXFMAh67BibzqQ',
+'target': '_blank'
 });
 
 
