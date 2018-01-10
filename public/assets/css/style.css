@@ -54,7 +54,7 @@ table {
 
 body {
   font-family: sans-serif;
-  background-color: #000;
+  /*background-color: #000;*/
   /*background-image: url("/assets/img/poster.png") top center;*/
 }
 
@@ -131,7 +131,7 @@ body {
   margin-bottom: 130px;
 }
 
-#content, #menu, .section-region {
+#content, .section-region {
   display: block;
   padding: 25px;
   background: rgba(255, 255, 255, 0.8);
@@ -257,7 +257,7 @@ body {
 }
 
 #menu .menu {
-  display: none;
+  /*display: none;*/
   text-transform: lowercase;
 }
 
@@ -418,7 +418,7 @@ h6 {
 }
 
 .menu {
-  display: none;
+  /*display: none;*/
   text-transform: lowercase;
 }
 
@@ -830,7 +830,9 @@ body {
   position: relative;
 }
 
- a.about.current {
+
+a.menu.current,
+a.about.current {
   color: black;
 }
 
@@ -985,22 +987,23 @@ body {
 .about-panels {
   width: 100%;
   background: green;
-  height: 100vh;
+  /*height: 100vh;*/
 }
+
 
 .left-about-panels {
   width: 50%;
-  background: #000;
-  height: 100vh;
-  float: left;
-  /*padding-top: 56px;*/
+background: #000;
+min-height: : 900px;
+float: left;
+/* padding-top: 56px; */
+padding-bottom: 10px;
 }
 
 .right-about-panels {
   width: 50%;
   /*background: #565555;*/
-background: #fff;
-  height: 100vh;
+  background: #fff;
   float: left;
   /*padding-top: 56px;*/
 
@@ -1119,8 +1122,8 @@ background: #fff;
 }
 
 .about-panel {
-  background: yellow;
-  height: 100vh;
+  /*background: yellow;*/
+  /*height: 100vh;*/
 }
 
 
@@ -1904,4 +1907,48 @@ display: none;
   padding: 5%;
   top: 0;
 }
+}
+
+
+.caviar{
+  width:100%;height:2500px;
+  background-image: url(../img/arrow.png);
+  background-position: top center;
+  background-repeat: no-repeat;
+  margin-top: -4px;
+}
+
+
+
+.container{
+  width: 1280px;
+  margin: 0 auto;
+}
+
+
+.menu-body {
+    padding-top: 140px;
+    width: 660px;
+    margin: 0 auto;
+    color: #DF5857;
+    font-size: 13px;
+    line-height: 26px;
+}
+
+@media screen and (max-width: 1290px) {
+
+  .container{
+  width: 100%;
+  }
+
+
+}
+
+
+@media screen and (max-width: 768px) {
+  .menu-body {
+      width: 96%;
+      margin: 0 auto;
+
+  }
 }

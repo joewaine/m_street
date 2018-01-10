@@ -138,7 +138,7 @@
         <!-- <h1 class="two-lines"> -->
         <div style="">
       <span style="display:block;"><span class="line1">{{ block.phraseLineOne|raw }}</span></span>
-      <span style="display:block;"><span class="line2">{{ block.phraseLineTwo|raw }}</span></span>
+      <!-- <span style="display:block;"><span class="line2">{{ block.phraseLineTwo|raw }}</span></span> -->
 </div>
       <!-- </h1> -->
       {% endif %}
@@ -197,7 +197,7 @@
 	</div>
 {% include "parts/bottom-area-mobile" %}
 
-<div id="about" class="about-panel" style="">
+<div id="about" class="about-panel" style="display: inline-block;">
 
 
   {% if entry.section == "Homepage" %}
@@ -256,7 +256,31 @@
 
 
 </div>
+<div id="menu" class="caviar">
 
+<div class="container">
+  <div class="menu-body">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse . Lorem ipsum dolor sit amet, consectetuer adipis.
+              </div>
+  <br>
+  <br>
+  <script src='https://www.trycaviar.com/embed.js'></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+$('.offer-tiles_category-name').hide();
+
+</script>
+
+
+<a class='caviar-embed-menu' href='https://www.trycaviar.com/seattle/mamnoon-628'>Order from Caviar</a>
+<script type='text/javascript'>sq.caviar.MenuEmbed.transformAll()</script>
+
+</div>
+
+</div>
 
 
 
@@ -374,12 +398,31 @@ $(window).scroll(function() {
     } else {
         $("a.about").removeClass("current");
     }
+
+    if (scroll >= $('#menu').offset().top - 54) {
+        $("a.menu").addClass("current");
+                $("a.about").removeClass("current");
+    } else {
+        $("a.menu").removeClass("current");
+    }
+
+
+
 });
 
 $("a.about").click(function(e) {
   e.preventDefault();
     $('html, body').animate({
         scrollTop: $("#about").offset().top - 54
+    }, 500);
+});
+
+
+
+$("a.menu").click(function(e) {
+  e.preventDefault();
+    $('html, body').animate({
+        scrollTop: $("#menu").offset().top - 50
     }, 500);
 });
 
@@ -733,10 +776,10 @@ $(window).resize(function(){
 // });
 
 
-$('a.open-coming-soon').attr({
-  'href': 'https://www.trycaviar.com/seattle/mamnoon-street-6597/preview/mer-zwDSg1eHEXFMAh67BibzqQ',
-'target': '_blank'
-});
+// $('a.open-coming-soon').attr({
+//   'href': 'https://www.trycaviar.com/seattle/mamnoon-street-6597/preview/mer-zwDSg1eHEXFMAh67BibzqQ',
+// 'target': '_blank'
+// });
 
 
 </script>
