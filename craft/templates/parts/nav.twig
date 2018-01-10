@@ -61,15 +61,79 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh 
 
 <!-- <form action="http://myaccount.createsend.com/t/r/s/aljhk/" method="post" id="subForm"> -->
 
-		<form action="https://mamnoonrestaurant.createsend.com/t/i/s/adrkjh/" method="post" id="subForm">
-{{ getCsrfInput() }}
+		<!-- <form action="//mamnoonrestaurant.createsend.com/t/i/s/adrkjh/" method="post" id="subFormx" > -->
+{# {{ getCsrfInput() }} #}
+      <!-- <a class="close" href="javascript://" data-dismiss="modal"> -->
+        <!-- <img src="assets/img/close-up-modal-red.svg" style="width: 27px;height: 27px;"></a> -->
+			<!-- <input type="text" name="cm-name" placeholder="name" /> -->
+			<!-- <input type="email" spellcheck="false" name="cm-adrkjh-adrkjh" id="email" placeholder="email" /> -->
+			<!-- <button class="submit" type="submit" value="Subscribe">Subscribe</button> -->
+
+
+      <!-- <button id="button" type="button" value="send" class="btn btn-primary">Submit</button> -->
+
+
+
+      <!-- <div id="response">Thanks! You're subscribed</div> -->
+		<!-- </form> -->
+
+
+
+
+
+
+
+    <form action="https://mamnoonrestaurant.createsend.com/t/i/s/adrkjh/" method="post" id="subForm">
       <a class="close" href="javascript://" data-dismiss="modal">
         <img src="assets/img/close-up-modal-red.svg" style="width: 27px;height: 27px;"></a>
-			<input type="text" name="cm-name" placeholder="name" />
-			<input type="email" spellcheck="false" name="cm-adrkjh-adrkjh" id="email" placeholder="email" />
-			<button class="submit" type="submit" value="Subscribe">Subscribe</button>
-			<div id="response">Thanks! You're subscribed</div>
-		</form>
+
+            <input placeholder="name" type="text" name="cm-name" id="name" /><br />
+        <input placeholder="email" type="text" name="cm-adrkjh-adrkjh" id="adrkjh-adrkjh" /><br />
+            <!-- <input type="submit" value="Subscribe" /> -->
+
+            <!-- <button id="button" type="submit" value="Subscribe" class="btn btn-primary">Subscribe</button> -->
+
+
+            <button class="submit" type="submit" value="Subscribe">Subscribe</button>
+
+
+    </form>
+    <div class="thankyou">thank you!</div>
+<div class="error">invalid</div>
+    <!-- 2. Add some JavaScript -->
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#subForm').submit(function (e) {
+                e.preventDefault();
+                $.getJSON(
+                this.action + "?callback=?",
+                $(this).serialize(),
+                function (data) {
+                    if (data.Status === 400) {
+                        // alert("Error: " + data.Message);
+
+
+                        $('#modal .error').slideDown();
+
+                        $('#modal .error').delay( 800 ).fadeOut();
+
+                    } else { // 200
+                        $('#modal .thankyou').slideDown().delay( 2000 ).fadeOut();
+                        $('#modal').delay( 800 ).fadeOut();
+
+$('#adrkjh-adrkjh, #name').val('');
+
+
+                    }
+                });
+            });
+        });
+
+
+    </script>
+
 
 
 
