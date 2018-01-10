@@ -222,3 +222,7 @@ a#button:hover {
   color: #000;
   line-height: 28px;
 }
+
+.modal-backdrop, .modal-backdrop.fade.in {
+    opacity: 0.0 !important;
+}
