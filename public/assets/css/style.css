@@ -997,7 +997,7 @@ background: #000;
 min-height: : 900px;
 float: left;
 /* padding-top: 56px; */
-    padding-bottom: 40px;
+/*padding-bottom: 40px;*/
 }
 
 .right-about-panels {
@@ -1027,7 +1027,7 @@ float: left;
 }
 
 .left-about-panels .content-container{
-      padding: 80px 80px 70px 80px;
+      /*padding: 80px 80px 70px 80px;*/
 
 }
 
@@ -1951,4 +1951,19 @@ display: none;
       margin: 0 auto;
 
   }
+}
+
+
+.thankyou, .error{
+    color: black;
+    display: none;
+    font-size: 27px;
+    float: right;
+    margin-top: 30px;
+}
+
+
+
+.error{
+  color: #DF5857;
 }

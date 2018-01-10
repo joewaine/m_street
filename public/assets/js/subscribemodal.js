@@ -29,19 +29,18 @@ window.csrfTokenName = "{{ craft.config.get('csrfTokenName')}}";
 window.csrfTokenValue = "{{ craft.request.getCsrfToken}}";
 
 
-$(function(){
-        $('#subForm').submit(function (e) {
-          alert('thanks')
-            e.preventDefault();
-            $.getJSON(
-            this.action + "?callback=?",
-            $(this).serialize(),
-            function (data) {
-                if (data.Status === 400) {
-                    alert("Error");
-                } else { // 200
-                    alert("Success");
-                }
-            });
-        });
-    });
+// $(function(){
+//         $('#subForm').submit(function (e) {
+//             e.preventDefault();
+//             $.getJSON(
+//             this.action + "?callback=?",
+//             $(this).serialize(),
+//             function (data) {
+//                 if (data.Status === 400) {
+//                     alert("Error");
+//                 } else { // 200
+//                     alert("Success");
+//                 }
+//             });
+//         });
+//     });
