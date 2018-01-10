@@ -226,3 +226,9 @@ a#button:hover {
 .modal-backdrop, .modal-backdrop.fade.in {
     opacity: 0.0 !important;
 }
+
+
+.modal-backdrop, .modal-backdrop.fade.in {
+    opacity: 0.0 !important;
+    filter: alpha(opacity=0) !important;
+}
