@@ -56,8 +56,12 @@
 
 
 <p class="modal-text" style="color: #000;line-height: 28px;margin-top: 30px;">
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat.
-      </p>
+{% for text in craft.entries.section('globals') %}
+{% if text.subscribeModalText %}
+  {{ text.subscribeModalText }}
+  {% endif %}
+  {% endfor %}
+</p>
 
 <!-- <form action="http://myaccount.createsend.com/t/r/s/aljhk/" method="post" id="subForm"> -->
 

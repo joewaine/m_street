@@ -1912,7 +1912,8 @@ display: none;
 
 .caviar{
   width:100%;height:2500px;
-  background-image: url(../img/arrow.png);
+  background-image: url(../img/arrow.svg);
+  background-size: 227px 114px;
   background-position: top center;
   background-repeat: no-repeat;
   margin-top: -4px;
