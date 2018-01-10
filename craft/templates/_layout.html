@@ -601,9 +601,15 @@ var mixUp = setInterval(function(){
       $(this).html('<div class="one-line" style="">' + phrases[counter][0] + '</div>').delay(2000).css({'text-align': 'center'}).fadeIn(1000);
     });
   }else{
+    // $(".flashing-text").fadeOut(750, function() {
+    //   $(this).html('<div class="two-line" style=""><span style="display:block;"><span class="line1">' + phrases[counter][0] + '</span></span><span style="display:block;"><span class="line2">' + phrases[counter][1] + '</span></span></div>').delay(2000).css({'text-align': 'center'}).fadeIn(1000);
+    // });
     $(".flashing-text").fadeOut(750, function() {
-      $(this).html('<div class="two-line" style=""><span style="display:block;"><span class="line1">' + phrases[counter][0] + '</span></span><span style="display:block;"><span class="line2">' + phrases[counter][1] + '</span></span></div>').delay(2000).css({'text-align': 'center'}).fadeIn(1000);
+      $(this).html('<div class="one-line" style="">' + phrases[counter][0] + '</div>').delay(2000).css({'text-align': 'center'}).fadeIn(1000);
     });
+
+
+
 }
 if(counter === end){
   counter = 0;
