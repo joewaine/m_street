@@ -8,17 +8,40 @@ g.call(this))}};b.fn.modal=function(a){return this.each(function(){var c=b(this)
 
 
 
-  $(function () {
-    $('#subForm').submit(function (e) {
-      e.preventDefault();
-      $('#email').removeClass();
-      $('button').fadeTo(200,0.5);
-      $.getJSON(
-      this.action + "?callback=?",
-      $(this).serialize(),
-      function (data) {
-        $('button').stop().fadeTo(200,1);
-        if (data.Status === 400) { $('#email').addClass('error'); } else { $('#response').show(); }
-      });
+  // $(function () {
+  //   $('#subForm').submit(function (e) {
+  //     e.preventDefault();
+  //     $('#email').removeClass();
+  //     $('button').fadeTo(200,0.5);
+  //     $.getJSON(
+  //     this.action + "?callback=?",
+  //     $(this).serialize(),
+  //     function (data) {
+  //       $('button').stop().fadeTo(200,1);
+  //       if (data.Status === 400) { $('#email').addClass('error'); } else { $('#response').show(); }
+  //     });
+  //   });
+  // });
+
+
+
+window.csrfTokenName = "{{ craft.config.get('csrfTokenName')}}";
+window.csrfTokenValue = "{{ craft.request.getCsrfToken}}";
+
+
+$(function(){
+        $('#subForm').submit(function (e) {
+          alert('thanks')
+            e.preventDefault();
+            $.getJSON(
+            this.action + "?callback=?",
+            $(this).serialize(),
+            function (data) {
+                if (data.Status === 400) {
+                    alert("Error");
+                } else { // 200
+                    alert("Success");
+                }
+            });
+        });
     });
-  });

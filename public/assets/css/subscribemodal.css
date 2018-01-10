@@ -31,18 +31,15 @@ a#button:hover {
   top: 50%;
   left: 50%;
   z-index: 200;
-  width: 398px;
+  width: 344px;
   margin: -17% 0 0 -250px;
   background-color: #FFF;
   z-index: 1000;
-  -khtml-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
   box-shadow: 0 0 0 4px rgba(55, 60, 65, 0.1);
   -moz-box-shadow: 0 0 0 4px rgba(55, 60, 65, 0.1);
   -webkit-box-shadow: 0 0 0 4px rgba(55, 60, 65, 0.1);
-  padding: 50px 50px 55px;
+  padding: 30px;
+  margin-left: -202px;
 }
 .modal a.close {
   position: absolute;
@@ -99,12 +96,16 @@ a#button:hover {
   margin: 0;
 }
 .modal form#subForm input {
-  width: 378px;
-  border: 1px solid #cfd4db;
-  padding: 12px 10px;
-  margin: 0 0 5px 0;
-  font-size: 15px;
-  color: #373c44;
+      width: 322px;
+      border: 2px solid #E05957;
+      padding: 12px 10px;
+      margin: 0 0 5px 0;
+      font-size: 15px;
+      color: #000;
+      border-radius: 0;
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 22px;
 }
 .modal form#subForm input::-webkit-input-placeholder {
   color: #c8ccd1;
@@ -139,18 +140,24 @@ a#button:hover {
   background-position: 372px center;
   color: #df452c;
 }
-.modal form#subForm button {
-  float: left;
-  background: #df452c;
-  border: none;
-  border-bottom: 2px solid #a8321d;
-  color: #fff;
-  font-size: 15px;
-  padding: 13px 30px;
-  cursor: pointer;
-  margin-top: 10px;
+.modal form#subForm button.submit {
+  float: left; */
+      /* background: #df452c; */
+      border: none;
+      /* border-bottom: 2px solid #a8321d; */
+      color: #fff;
+      font-size: 15px;
+      padding: 7px 16px;
+      cursor: pointer;
+      margin-top: 10px;
+      border-radius: 0;
+      background-color: #DF5857;
+      font-size: 22px;
+      font-weight: bold;
+      text-transform: lowercase;
+      border: 0;
 }
-.modal form#subForm button:hover {
+/*.modal form#subForm button:hover {
   background: #e74d34;
 }
 .modal form#subForm button:active,
@@ -159,7 +166,7 @@ a#button:hover {
   border-bottom: 0;
   border-top: 2px solid #922c19;
   outline: none;
-}
+}*/
 @media only screen and (max-width: 480px) {
   body {
     padding-top: 100px;
@@ -182,3 +189,39 @@ a#button:hover {
     line-height: 1;
     margin-bottom: 30px;
   }
+
+
+
+
+
+.modal form#subForm button.close {
+      position: absolute !important;
+      top: 0 !important;
+      right: 0 !important;
+      background-image: url(../img/close-up-modal-red.svg) !important;
+      background-color: transparent !important;
+      background-repeat: no-repeat !important;
+      border: 0 !important;
+      width: 88px !important;
+      height: 88px !important;
+      position: absolute !important;
+      top: 104px !important;
+      right: 78px !important;
+      margin-left: -16px !important;
+      color: transparent !important;
+      outline: none !important;
+  }
+
+
+.modal form#subForm button{
+      outline: none !important;
+}
+.modal form#subForm a.close {
+        background-image: url(../img/close-up-modal-red.svg) !important;
+}
+
+
+.modal-text{
+  color: #000;
+  line-height: 28px;
+}

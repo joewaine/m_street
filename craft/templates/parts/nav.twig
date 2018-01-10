@@ -33,33 +33,41 @@
 
    <!-- replace when online ordering is ready -->
       <!-- <a href="/#menu">menu / </a> -->
-      <a class="open-coming-soon">menu / </a>
+      <a href="#menu" class="menu">menu / </a>
     </li>
 
   <li>
        <!-- replace when online ordering is ready -->
       <!-- <a href="https://app.upserve.com/s/mamnoon-street-seattle" target="_blank">order</a> -->
-      <a class="open-coming-soon">order</a>
+      <a href="#menu" class="menu">order</a>
     </li>
 
     <li>
-      <a class="about" href="#aboutcontainer">about</a>
+      &nbsp;&nbsp;&nbsp;<a class="about" href="#aboutcontainer">about</a>
     </li>
 <li>
 
 
 
 
-  <!-- Button -->
-	<a data-toggle="modal" data-target="#modal" href="javascript://" id="button">Subscribe to our newsletter</a>
 
 	<!-- Modal -->
 	<div id="modal" class="modal hide">
+
+
+<p class="modal-text" style="color: #000;line-height: 28px;margin-top: 30px;">
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat.
+      </p>
+
+<!-- <form action="http://myaccount.createsend.com/t/r/s/aljhk/" method="post" id="subForm"> -->
+
 		<form action="https://mamnoonrestaurant.createsend.com/t/i/s/adrkjh/" method="post" id="subForm">
-			<a class="close" href="javascript://" data-dismiss="modal">&#215;</a>
-			<input type="text" name="cm-name" placeholder="Your name" />
-			<input type="email" spellcheck="false" name="cm-adrkjh-adrkjh" id="email" placeholder="Your email address" />
-			<button type="submit" value="Subscribe">Subscribe</button>
+{{ getCsrfInput() }}
+      <a class="close" href="javascript://" data-dismiss="modal">
+        <img src="assets/img/close-up-modal-red.svg" style="width: 27px;height: 27px;"></a>
+			<input type="text" name="cm-name" placeholder="name" />
+			<input type="email" spellcheck="false" name="cm-adrkjh-adrkjh" id="email" placeholder="email" />
+			<button class="submit" type="submit" value="Subscribe">Subscribe</button>
 			<div id="response">Thanks! You're subscribed</div>
 		</form>
 
