@@ -1224,6 +1224,10 @@ display: none;
     display: block;
     height: 56px;
     background-color: #DF5857;
+    position: fixed;
+    bottom: 0;
+    z-index: 100;
+width: 100%;
   }
   .mobile-footer-social .social-links {
     display: inline-block;
@@ -1964,7 +1968,27 @@ display: none;
 }
 
 
-
 .error{
   color: #DF5857;
+}
+
+
+
+.subscribe{
+position: absolute;width: 500px;left: -174px;top: 1px;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+
+.subscribe{
+position: absolute;
+left: 10px;
+top: 1px;
+}
+
+
+
 }
