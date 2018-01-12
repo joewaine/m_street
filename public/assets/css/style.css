@@ -1975,10 +1975,6 @@ background-color: white;
 }
 
 
-/**/
-.subscribe{
-position: absolute;width: 500px;left: -174px;top: 1px;
-}
 .subscribe {
     position: absolute;
     width: 144px;
@@ -2001,6 +1997,18 @@ top: 1px;
 
 }
 
+
+@-moz-document url-prefix() {
+  .subscribe{
+  top: 4px;
+  }
+
+
+.main-nav li.firefoxfix{
+  padding-top: 3px;
+}
+
+}
 
 
 body{
