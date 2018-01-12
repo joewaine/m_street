@@ -1975,11 +1975,17 @@ background-color: white;
 }
 
 
-
+/**/
 .subscribe{
 position: absolute;width: 500px;left: -174px;top: 1px;
 }
-
+.subscribe {
+    position: absolute;
+    width: 144px;
+    left: 4px;
+    top: 1px;
+    /* background: green; */
+}
 
 
 
