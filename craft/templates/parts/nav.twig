@@ -1,12 +1,17 @@
 <div class="line-modal" style="display: none;">
 
 
-
 <div class="video-background">
+
     <div class="video-foreground">
-      {% for text in craft.entries.section('globals') %}
-        {{ text.lineCameraEmbedCode|raw }}
-      {% endfor %}
+  {% for text in craft.entries.section('globals') %}
+    {{ text.lineCameraEmbedCode|raw }}
+  {% endfor %}
+
+
+
+
+
     </div>
   </div>
 
