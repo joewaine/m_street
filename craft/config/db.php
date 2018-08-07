@@ -17,7 +17,7 @@
 // 	 'localhost' => array(
 
 //     'server' => 'localhost',
-// 	  'database' => 'mamnoon_street',
+// 	  'database' => 'mamnoon_street_2017_install',
 // 	  'user' => 'root',
 // 	  'password' => 'root',
 // 	  'tablePrefix' => 'craft',
@@ -58,7 +58,7 @@ return array(
       ),
        'localhost' => array(
           'server' => 'localhost',
-          'database' => 'mamnoon_street',
+          'database' => 'mamnoon_street_2017_install',
           'user' => 'root',
           'password' => 'root',
           'tablePrefix' => 'craft',
