@@ -9,13 +9,13 @@ var MamnoonFeed = (function () {
   }
 
   function feedsLoaded() {
-    
+
     var feed = new google.feeds.Feed( mamnoonBlogspotBaseUrl + '/feeds/posts/default?nocache='+new Date().getTime() );
     // feed.includeHistoricalEntries();
     // feed.setNumEntries(6);
     feed.load(function(result) {
       if (!result.error) {
-        var feedFeature = document.getElementById( feedFeatureId ), 
+        var feedFeature = document.getElementById( feedFeatureId ),
             feedList = document.getElementById( feedListId ),
             dateToString = function ( s ) {
               var d = new Date( s );
@@ -23,7 +23,7 @@ var MamnoonFeed = (function () {
             };
 
         // feed-feature
-        if ( result.feed.entries.length ) {        
+        if ( result.feed.entries.length ) {
           var entry = result.feed.entries[0];
           var div = document.createElement("div");
           div.innerHTML = '';
