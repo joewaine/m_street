@@ -258,36 +258,49 @@
 {% endif %}
 {% endfor %}
 </p>
-  <form action="https://mamnoonrestaurant.createsend.com/t/i/s/adrkjh/" method="post" id="subForm">
-    <a class="close" href="javascript://" data-dismiss="modal">
+
+
+
+
+<form id="subForm" class="js-cm-form" action="https://www.createsend.com/t/subscribeerror?description=" method="post" data-id="30FEA77E7D0A9B8D7616376B90063231C1C3A5B32B7CB12F53E32CA6A86C8DA201F182533F588D967927888505C8881D91F925DA50D2947EA368EECEE2B5C346">
+   <a class="close" href="javascript://" data-dismiss="modal">
       <img src="assets/img/close-up-modal-red.svg" style="width: 27px;height: 27px;"></a>
-      <input placeholder="name" type="text" name="cm-name" id="name" /><br />
-      <input placeholder="email" type="text" name="cm-adrkjh-adrkjh" id="adrkjh-adrkjh" /><br />
-          <button class="submit" type="submit" value="Subscribe">Subscribe</button>
-  </form>
-  <div class="thankyou">thank you!</div>
-<div class="error">invalid</div>
+<p>
+    <input id="fieldName" placeholder="name" name="cm-name" type="text" />
+</p>
+<p>
+    <input id="fieldEmail" placeholder="email" name="cm-adrkjh-adrkjh" type="email" class="js-cm-email-input"
+    required />
+</p>
+<p>
+
+<button class="js-cm-submit-button submit" type="submit" value="Subscribe">Subscribe</button>
+</p>
+</form>
+<script type="text/javascript" src="https://js.createsend1.com/javascript/copypastesubscribeformlogic.js"></script>
+<!--   <div class="thankyou">thank you!</div>
+<div class="error">invalid</div> -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
   <script type="text/javascript">
-      $(function () {
-          $('#subForm').submit(function (e) {
-              e.preventDefault();
-              $.getJSON(
-              this.action + "?callback=?",
-              $(this).serialize(),
-              function (data) {
-                  if (data.Status === 400) {
-                      // alert("Error: " + data.Message);
-                      $('#modal .error').slideDown();
-                      $('#modal .error').delay( 800 ).fadeOut();
-                  } else { // 200
-                      $('#modal .thankyou').slideDown().delay( 2000 ).fadeOut();
-                      $('#modal').delay( 800 ).fadeOut();
-$('#adrkjh-adrkjh, #name').val('');
-                  }
-              });
-          });
-      });
+//       $(function () {
+//           $('#subForm').submit(function (e) {
+//               e.preventDefault();
+//               $.getJSON(
+//               this.action + "?callback=?",
+//               $(this).serialize(),
+//               function (data) {
+//                   if (data.Status === 400) {
+//                       // alert("Error: " + data.Message);
+//                       $('#modal .error').slideDown();
+//                       $('#modal .error').delay( 800 ).fadeOut();
+//                   } else { // 200
+//                       $('#modal .thankyou').slideDown().delay( 2000 ).fadeOut();
+//                       $('#modal').delay( 800 ).fadeOut();
+// $('#adrkjh-adrkjh, #name').val('');
+//                   }
+//               });
+//           });
+//       });
   </script>
 </div>
 
