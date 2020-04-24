@@ -236,7 +236,7 @@
   </div>
 
 
-{% include "parts/map" %}
+  {% include "parts/map" %}
 
   </div>
   </div>
@@ -308,7 +308,8 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-{% includeJsFile "assets/js/subscribemodal.js" %}
+
+{% includeCssFile "assets/js/subscribemodal.js" %}
 
 
 
@@ -747,25 +748,14 @@ $(window).resize(function(){
 
 
 
-<script type="text/javascript">
 
 
-if (
-    navigator.userAgent.indexOf('Safari') != -1 && 
-    navigator.userAgent.indexOf('Chrome') == -1 && 
-    navigator.userAgent.indexOf('CriOS/') == -1
-)  { 
-   //i.e. apply safari class via jquery
-   console.log('safari')
-
-$('#menu').remove();
-
-}else{
-    console.log('not safari')
-}
 
 
-</script>
+
+
+
+
 
 </body>
 </html>
