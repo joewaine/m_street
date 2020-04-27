@@ -143,8 +143,17 @@ color: #ffffff;
   {{ text.notificationHeader }}
 </h4>
 <p style="width: 65%;">
+  {% if text.notificationText != '' %}
   {{ text.notificationText | raw }}
-</p>
+  {% else %}
+     <br><br>
+  {% endif %}
+  </p>
+
+
+
+
+
 
 </div>
 </div>
