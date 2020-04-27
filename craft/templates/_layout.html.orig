@@ -115,7 +115,7 @@
   {{ text.notificationHeader }}
 </h4>
 <p>
-  {{ text.notificationText }}
+  {{ text.notificationText | raw }}
 </p>
 </div>
 </div>
