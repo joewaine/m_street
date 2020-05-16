@@ -807,6 +807,15 @@ $('#menu').remove();
 }
 
 
+var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+
+if(isSafari){
+
+  $('a.menu').attr('href','https://www.trycaviar.com/m/mamnoon-street-6597');
+  $('a.menu').attr('target','_blank');
+}
+
 
 
 //  $('.notification-bar, .notification-bar-mobile').css('opacity', 0);
@@ -814,6 +823,9 @@ $('#menu').remove();
 //   if(window.location.href.indexOf("?name=123") > -1){
 //    $('.notification-bar, .notification-bar-mobile').css('opacity', 1);
 // }
+
+
+
 
 
 
