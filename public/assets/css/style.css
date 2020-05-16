@@ -2020,7 +2020,7 @@ body{
   /*background-image: url(../img/food-still.jpg);*/
   background-repeat: no-repeat;
   background-size: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 
