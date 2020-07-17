@@ -6,19 +6,39 @@
 
 <div class="menu-bars">menu</div>
 </li>
-  <li class="mobile-menu-links">
+
 
 {% for text in craft.entries.section('globals') %}
   {% if text.menupdf %}
+    <li class="mobile-menu-links">
       <a href="{{ text.menupdf }}" target="_blank" class="menu">menu / </a>
+        </li>
   {% endif %}
 {% endfor %}
+
+
+
+    <li class="mobile-menu-links">
 <a href="https://www.trycaviar.com/m/mamnoon-street-6597" target="_blank">order</a>
+  </li>
 
-
-    <br>
+    <li class="mobile-menu-links">
       <a class="about" href="#aboutcontainer">about</a>
-    </li>
+  </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     </ul>
 
