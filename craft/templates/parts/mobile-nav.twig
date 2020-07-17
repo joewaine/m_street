@@ -8,9 +8,12 @@
 </li>
   <li class="mobile-menu-links">
 
-
-<a href="/caviar" class="menu">menu / </a>
-<a href="/caviar" class="menu">order</a>
+{% for text in craft.entries.section('globals') %}
+  {% if text.menuPdf %}
+      <a href="{{ text.menuPdf }}" target="_blank" class="menu">menu / </a>
+  {% endif %}
+{% endfor %}
+<a href="https://www.trycaviar.com/m/mamnoon-street-6597" target="_blank">order</a>
 
 
 
