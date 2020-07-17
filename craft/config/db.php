@@ -39,7 +39,7 @@ return array(
         // The database username to connect with.
         'user' => 'mbar_webmaster',
         // The database password to connect with.
-        'password' => 'Seattle98109Mbar',
+        'password' => 'gXt9KsQkR5LEAih',
         // The prefix to use when naming tables. This can be no more than 5 characters.
         'tablePrefix' => 'craft'
         ),
@@ -52,7 +52,7 @@ return array(
         // The database username to connect with.
         'user' => 'mbar_webmaster',
         // The database password to connect with.
-        'password' => 'Seattle98109Mbar',
+        'password' => 'gXt9KsQkR5LEAih',
         // The prefix to use when naming tables. This can be no more than 5 characters.
         'tablePrefix' => 'craft'
       ),
