@@ -32,9 +32,9 @@
 
 
 {% for text in craft.entries.section('globals') %}
-  {% if text.menuPdf %}
+  {% if text.menupdf %}
     <li class="firefoxfix">
-      <a href="{{ text.menuPdf }}" target="_blank" class="menu">menu / </a>
+      <a href="{{ text.menupdf }}" target="_blank" class="menu">menu / </a>
     </li>
   {% endif %}
 {% endfor %}
