@@ -5,13 +5,13 @@
 {% if text.notificationHeader %}
 <div class="notification-bar-mobile phone">
 <div class="notification-bar-body">
-  <h4>
-  {{ text.notificationHeader }}
+  <h4 style="font-style: italic;">
+  {{ text.notificationHeader }} (in the top menu)
 </h4>
-<p>
+<p style="display: none;">
   {{ text.notificationText | raw }}
 </p>
-<div class="tock-widget" style="margin-top:10px;">
+<div class="tock-widget" style="margin-top:10px;display:none;">
 <div id="Tock_widget_container" data-tock-display-mode="Button" data-tock-color-mode="White" data-tock-locale="en-us" data-tock-timezone="America/Los_Angeles"></div>
 </div>
 </div>
@@ -80,10 +80,10 @@
 {% if text.notificationHeader %}
 <div class="notification-bar-mobile tablet">
 <div class="notification-bar-body">
-  <h4>
+  <h4 class="font-style: italic">
   {{ text.notificationHeader }}
 </h4>
-<p>
+<p style="display: none;">
   {{ text.notificationText | raw }}
 </p>
 

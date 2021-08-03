@@ -1,3 +1,38 @@
+
+<style type="text/css">
+.upserve-olo-opener{
+    display: inline-block;
+    border: none;
+    /* padding: 1rem 2rem; */
+    margin: 0;
+    text-decoration: none;
+    background: transparent;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-size: 20px;
+    color: white;
+    font-weight: 700;
+    margin-left: 0;
+    padding-left: 0;
+
+}
+
+.upserve-olo-opener:hover,
+.upserve-olo-opener:focus,
+.upserve-olo-opener:active{
+outline: none;
+}
+</style>
+
+
+
 <div class="line-modal" style="display: none;">
 
 
@@ -34,17 +69,18 @@
 {% for text in craft.entries.section('globals') %}
   {% if text.menupdf %}
     <li class="firefoxfix">
-      <a href="{{ text.menupdf }}" target="_blank" class="menu">menu / </a>
+      <a href="{{ text.menupdf }}" target="_blank" class="menu">menu</a>
     </li>
   {% endif %}
 {% endfor %}
 
   <li>
-<a href="https://www.trycaviar.com/m/mamnoon-street-6597" target="_blank" class="menu">order</a>
+<!--<a href="https://www.trycaviar.com/m/mamnoon-street-6597" target="_blank" class="menu">order</a>-->
+&nbsp;&nbsp;&nbsp;&nbsp;<button class='upserve-olo-button upserve-olo-opener'>order online</button>
     </li>
 
     <li>
-      &nbsp;&nbsp;&nbsp;<a class="about" href="#aboutcontainer">about</a>
+      &nbsp;&nbsp;&nbsp;&nbsp;<a class="about" href="#aboutcontainer">about</a>
     </li>
 <li>
 
